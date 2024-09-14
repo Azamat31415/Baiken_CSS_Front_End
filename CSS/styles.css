@@ -1,1 +1,53 @@
+body {
+    margin: 0;
+}
 
+hr {
+    margin: 0;
+}
+
+.navbar {
+    display: flex; /* Используем Flexbox для горизонтального выравнивания */
+    align-items: center; /* Выровнять элементы по вертикали относительно центра */
+    padding: 0; /* Добавляем отступы внутри навбара */
+    border: 3px solid #4ba8ff; /* Черная граница шириной 2px */
+    border-radius: 8px; /* Скругление углов границы */
+    padding: 10px; /* Отступы внутри навбара */
+    background-color: white; /* Цвет фона навбара */
+}
+
+.navbar ul {
+    display: flex; /* Используем Flexbox для горизонтального выравнивания элементов списка */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    align-items: center; /* Центрируем элементы внутри ul */
+}
+
+.navbar li {
+    margin-left: 20px; /* Отступ между элементами списка */
+    border-right: 3px solid #4ba8ff;
+}
+
+.navbar a {
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+    text-align: center;
+    font-size: 25px; /* Уменьшение шрифта для лучшего выравнивания */
+}
+
+.navbar a:hover {
+    background-color: hsl(200, 100%, 70%);
+}
+
+.navbar li:first-child a:hover {
+    background-color: transparent;
+}
+
+.navbar img {
+    height: 80px; /* Устанавливаем высоту логотипа */
+    object-fit: contain; /* Сохраняем пропорции изображения */
+    margin: 0; /* Отступ справа от логотипа */
+}
