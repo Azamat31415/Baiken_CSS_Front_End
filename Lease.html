@@ -6,7 +6,25 @@
     <title>Home Page</title>
     <link rel="stylesheet" href="./CSS/styles.css">
     <style>
-         figure {
+          body {
+            background-color: #f0f8ff; /* Голубой фон */
+            color: #333;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Стили для заголовков */
+        h2 {
+            color: #1f78b4; /* Темно-синий цвет заголовка */
+        }
+
+        h3 {
+            color: #2b6dad; /* Синий цвет заголовков для объектов */
+        }
+
+        /* Центровка и стили для изображений */
+        figure {
             text-align: center;
             margin: 0;
         }
@@ -16,12 +34,53 @@
             height: auto;
             border-radius: 10px;
         }
-        
+
+        /* Флекс для объектов */
         section {
             display: flex;
-            justify-content: space-around; 
-            flex-wrap: wrap; 
+            justify-content: space-around; /* Распределение объектов по горизонтали */
+            flex-wrap: wrap; /* Авто-перенос объектов при сужении экрана */
             padding: 20px;
+        }
+
+        /* Стили для подписей и текста */
+        figcaption {
+            background-color: #e6f2ff; /* Светло-голубой фон для подписей */
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Стили для навигации */
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+            background-color: #007acc; /* Синий фон для навигации */
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 15px;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background-color: #005b99; /* Темно-синий при наведении */
+        }
+
+        /* Стили для футера */
+        footer {
+            text-align: center;
+            background-color: #007acc;
+            color: white;
+            padding: 10px 0;
         }
         </style>
 </head>
