@@ -1,63 +1,3 @@
-body {
-    margin: 0px;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.header-right a:hover img {
-    transform: scale(1.1);
-    transition: transform 0.2s ease-in-out;
-}
-
-.navbar {
-    border: 3.5px solid #4179df;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.logo {
-    width: 180px;
-    margin: 10px;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: space-around;
-    background-color: #007acc;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    padding: 15px 20px;
-    display: block;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-nav ul li a:hover {
-    background-color: #005b99;
-    transform: scale(1.05);
-}
-
-nav ul li a.active {
-    background-color: #005b99;
-}
 
 main {
     max-width: 1200px;
@@ -75,14 +15,14 @@ figure {
 }
 
 figure img {
-    width: 100%;
+    width: 95%;
     height: auto;
     border-radius: 10px;
     transition: transform 0.3s ease;
 }
 
 figure:hover img {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 figcaption {

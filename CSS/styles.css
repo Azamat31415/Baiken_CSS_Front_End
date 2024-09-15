@@ -15,11 +15,6 @@ header {
     z-index: 1000;
 }
 
-.header-right {
-    display: flex;
-    gap: 40px;
-}
-
 .navbar {
     border: 3.5px solid #4179df;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -48,6 +43,8 @@ nav ul li a {
     color: white;
     padding: 15px 20px;
     display: block;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
 nav ul li:first-child a {
