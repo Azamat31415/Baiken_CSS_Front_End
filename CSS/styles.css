@@ -55,3 +55,24 @@ nav ul li a:hover {
     object-fit: contain;
 }
 
+footer {
+    background-color: #007acc;
+    color: white;
+    padding: 20px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-info p {
+    margin: 5px 0;
+}
+
+.footer-info a {
+    color: white;
+    text-decoration: underline;
+}
