@@ -3,10 +3,16 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.dd-text {
+    text-align: center;
+    margin-right: 40px;
+}
+
 /* Personal account */
 .pers-acc {
     background-image: url(/Assets/acc.png);
     background-size: cover;
+    background-repeat: no-repeat;
     background-position: center;
     padding: 0;
 }
@@ -56,6 +62,7 @@ body {
 .submit {
     background-image: url(/Assets/profile.png);
     background-size: cover;
+    background-repeat: no-repeat;
     background-position: center;
     padding: 0;
 }
