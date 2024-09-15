@@ -2,9 +2,23 @@ body {
     margin: 0px;
 }
 
+.logo {
+    margin: 15px;
+    width: 200px;
+}
+
+.navbar {
+    padding: 0;
+    justify-content: center;
+    background-color: hsl(204, 100%, 40%);
+    border: 3.5px solid #4179df;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
     display: flex;
     justify-content: space-around;
     background-color: #007acc; 
@@ -17,10 +31,25 @@ nav ul li {
 nav ul li a {
     text-decoration: none;
     color: white;
-    padding: 15px;
+    padding: 15px 20px;
     display: block;
+}
+
+nav ul li:first-child a {
+    border-left: none;
 }
 
 nav ul li a:hover {
     background-color: #005b99; 
+}
+
+.nav-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
 }
