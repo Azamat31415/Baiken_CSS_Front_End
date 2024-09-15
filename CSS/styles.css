@@ -55,21 +55,3 @@ nav ul li a:hover {
     object-fit: contain;
 }
 
-.property-item {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.property-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-}
-
-
-.btn {
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.btn:hover {
-    background-color: #005b99;
-    transform: scale(1.05);
-}
