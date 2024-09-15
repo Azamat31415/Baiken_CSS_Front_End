@@ -22,11 +22,6 @@ main{
     gap: 20px;
 }
 
-.filter-group {
-    display: flex;
-    flex-direction: column;
-}
-
 label {
     margin-bottom: 5px;
     font-size: 14px;
@@ -72,7 +67,6 @@ figure {
     margin: 20px auto;
 }
 
-/* Стиль для изображений */
 figure img {
     border-radius: 8px;
     margin-right: 15px;
@@ -80,7 +74,6 @@ figure img {
     height: 300px;
 }
 
-/* Стиль для текста внутри фигуры */
 figure figcaption {
     flex: 1;
     display: flex;
@@ -88,27 +81,23 @@ figure figcaption {
     justify-content: space-between;
 }
 
-/* Заголовки для заголовков объявлений */
 figure h2 {
     font-size: 18px;
     margin: 0;
     color: #1e90ff;
 }
 
-/* Цены */
 figure h2:last-of-type {
     font-size: 20px;
     margin: 10px 0;
     color: #000;
 }
 
-/* Дополнительная информация */
 figure p {
     font-size: 14px;
     color: #555;
 }
 
-/* Кнопки и действия */
 .actions {
     display: flex;
     gap: 10px;
