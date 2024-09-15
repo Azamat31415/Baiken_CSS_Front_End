@@ -2,6 +2,11 @@ body {
     margin: 0px;
 }
 
+main {
+    margin: 20px;
+}
+
+/* Header and Navigation */
 header {
     display: flex;
     justify-content: space-between;
@@ -60,6 +65,7 @@ nav ul li a:hover {
     object-fit: contain;
 }
 
+/* Footer */
 footer {
     background-color: #007acc;
     color: white;
@@ -86,19 +92,4 @@ footer {
     width: 40px;
     height: 40px;
     margin: 5px;
-}
-
-.builds_tape{
-    background-color: aquamarine;
-    margin-left: 22%;
-}
-
-.buildings-title{
-    background-image: url(/Assets/Buildings_img/IMG_4647.JPG);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 200px;
-    text-align: center;
-    padding-top: 27px;
-    border-top: #4179df;
 }
