@@ -15,6 +15,11 @@ header {
     z-index: 1000;
 }
 
+.header-right {
+    display: flex;
+    gap: 40px;
+}
+
 .navbar {
     border: 3.5px solid #4179df;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -51,11 +56,6 @@ nav ul li:first-child a {
 
 nav ul li a:hover {
     background-color: #005b99;
-}
-
-.header-right {
-    display: flex;
-    gap: 40px;
 }
 
 .icon {
@@ -111,12 +111,15 @@ footer {
 
 /* Profile, login, register */
 .main-profile {
-    margin: 20px 0;
+    background-image: url(/Assets/profile.png);
+    background-size: cover;
+    background-position: center;
+    padding: 5px 0;
 }
 
 .profile-container {
     max-width: 400px;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 20px;
     background-color: #f0f0f0;
     border-radius: 10px;
