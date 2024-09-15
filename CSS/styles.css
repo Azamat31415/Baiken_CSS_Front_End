@@ -76,6 +76,7 @@ footer {
     max-width: 1200px;
     margin: 0 auto;
 }
+<<<<<<< HEAD
 
 .footer-column {
     flex: 1;
@@ -87,3 +88,5 @@ footer {
     height: 40px;
     margin: 5px;
 }
+=======
+>>>>>>> 0e9b22bf57fcd38c0a02a682d0db3e7719336553
