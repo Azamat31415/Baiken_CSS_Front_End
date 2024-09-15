@@ -12,7 +12,8 @@ header {
 }
 
 .logo {
-    width: 150px;
+    width: 200px;
+    margin: 10px;
 }
 
 nav ul {
@@ -45,11 +46,11 @@ nav ul li a:hover {
 
 .header-right {
     display: flex;
-    gap: 10px;
+    gap: 40px;
 }
 
 .icon {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     object-fit: contain;
 }
