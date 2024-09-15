@@ -1,0 +1,117 @@
+body {
+    background-color: #f4f4f4;
+}
+
+main{
+    text-align: center;
+}
+
+.filter-container {
+    width: 100%;
+    max-width: 800px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.filter-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+label {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+select,
+input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.filter-button {
+    grid-column: span 2;
+    padding: 10px;
+    background-color:darkturquoise;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.filter-button:hover {
+    background-color:darkcyan;
+}
+
+figure {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #e2e2e2;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+figure img {
+    border-radius: 8px;
+    margin-right: 15px;
+    width: 500px;
+    height: 300px;
+}
+
+figure figcaption {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+figure h2 {
+    font-size: 18px;
+    margin: 0;
+    color: #1e90ff;
+}
+
+figure h2:last-of-type {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #000;
+}
+
+figure p {
+    font-size: 14px;
+    color: #555;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4682b4;
+}

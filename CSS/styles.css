@@ -3,7 +3,20 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.dd-text {
+    text-align: center;
+    margin-right: 40px;
+}
+
 /* Personal account */
+.pers-acc {
+    background-image: url(/Assets/acc.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 0;
+}
+
 .personal-account-main {
     max-width: 800px;
     margin: 40px auto;
@@ -46,6 +59,14 @@ body {
 }
 
 /* Submit an Ad */
+.submit {
+    background-image: url(/Assets/profile.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 0;
+}
+
 .submit-container {
     max-width: 800px;
     margin: 20px auto;
@@ -62,7 +83,7 @@ body {
 
 .image-section {
     display: flex;
-    flex-direction: column; /* Изменено на column для вертикального размещения */
+    flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
 }
@@ -74,7 +95,7 @@ body {
 }
 
 .add-picture {
-    margin-top: 10px; /* Отступ сверху для кнопки */
+    margin-top: 10px;
     padding: 10px 20px;
     background-color: #007acc;
     color: white;
