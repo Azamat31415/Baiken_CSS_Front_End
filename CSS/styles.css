@@ -3,6 +3,65 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/* Home page */
+.home-main {
+    background-image: url(/Assets/home-main.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 0;
+}
+
+/* Cart */
+.cart {
+    background-image: url(/Assets/acc.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 0;
+}
+
+.cart-main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.cart-heading {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.cart-text {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.cart-button {
+    padding: 10px 20px;
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.cart-button:hover {
+    background-color: #005b99;
+}
+
+.cart-button:active {
+    transform: scale(0.98);
+}
+
 .dd-text {
     text-align: center;
     margin-right: 40px;
