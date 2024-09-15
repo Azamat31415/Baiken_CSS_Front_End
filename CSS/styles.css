@@ -5,7 +5,7 @@ body {
 
 /* Personal account */
 .pers-acc {
-    background-image: url(/Assets/profile.png);
+    background-image: url(/Assets/acc.png);
     background-size: cover;
     background-position: center;
     padding: 0;
