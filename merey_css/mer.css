@@ -33,6 +33,13 @@ figcaption {
     transform: scale(1.2);
 }
 
-.properties {
-    
+.add-to-cart {
+    padding: 10px 20px;
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
 }
