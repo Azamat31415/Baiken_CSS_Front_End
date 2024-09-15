@@ -44,7 +44,7 @@
         <div class="filter-container">
             <form class="filter-form">
                 <div class="filter-group">
-                    <label for="rooms">Квартиры:</label>
+                    <label for="rooms">Rooms:</label>
                     <select id="rooms">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -55,32 +55,26 @@
                 </div>
     
                 <div class="filter-group">
-                    <label for="price">Цена:</label>
-                    <input type="text" id="price-from" placeholder="От">
-                    <input type="text" id="price-to" placeholder="До">
+                    <label for="price">Price:</label>
+                    <input type="text" id="price-from" placeholder="From">
+                    <input type="text" id="price-to" placeholder="To">
                 </div>
     
                 <div class="filter-group">
-                    <label for="house-type">Тип дома:</label>
-                    <select id="house-type">
-                        <option value="any">Не важно</option>
-                        <option value="brick">Кирпичный</option>
-                        <option value="panel">Панельный</option>
-                    </select>
+                    <label for="year">Year:</label>
+                    <input type="text" id="year-from" placeholder="From">
+                    <input type="text" id="year-to" placeholder="To">
                 </div>
     
                 <div class="filter-group">
-                    <label for="year">Год постройки:</label>
-                    <input type="text" id="year-from" placeholder="От">
-                    <input type="text" id="year-to" placeholder="До">
+                    <p>Type:</p>
+                    <label for="apartments"><input type="checkbox" id="apartments">Apartments</label>
+                    <label for="cottages"><input type="checkbox" id="cottages">Cottages</label>
+                    <label for="garrages"><input type="checkbox" id="garrages">Garrages </label>
+                    <label for="commercials"><input type="checkbox" id="commercials">Commercials</label>
                 </div>
     
-                <div class="filter-group">
-                    <label for="photo"><input type="checkbox" id="photo"> Есть фото</label>
-                    <label for="new-building"><input type="checkbox" id="new-building"> Новостройки</label>
-                </div>
-    
-                <button type="submit" class="filter-button">Показать результаты</button>
+                <button type="submit" class="filter-button">Show result</button>
             </form>
         </div>
 
