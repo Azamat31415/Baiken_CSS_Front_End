@@ -33,6 +33,7 @@ figcaption {
     transform: scale(1.2);
 }
 
-.properties {
-    
+.add-to-cart {
+    background-color: #005b99;
+    color: white; 
 }
