@@ -338,6 +338,7 @@ footer {
     padding: 20px;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
+    border-radius: 5px;
 }
 
 .main-right-builds {
@@ -361,6 +362,7 @@ footer {
 .builds_tape img {
     width: 100%; 
     height: auto;
+    border-radius: 5px;
 }
 
 .builds_tape figcaption {
