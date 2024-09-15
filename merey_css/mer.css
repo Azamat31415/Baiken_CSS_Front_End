@@ -1,18 +1,4 @@
 
-.header-right a:hover img {
-    transform: scale(1.1);
-    transition: transform 0.2s ease-in-out;
-}
-
-.navbar {
-    border: 3.5px solid #4179df;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-nav ul li a.active {
-    background-color: #005b99;
-}
-
 main {
     max-width: 1200px;
     margin: 20px auto;
@@ -29,14 +15,14 @@ figure {
 }
 
 figure img {
-    width: 100%;
+    width: 95%;
     height: auto;
     border-radius: 10px;
     transition: transform 0.3s ease;
 }
 
 figure:hover img {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 figcaption {

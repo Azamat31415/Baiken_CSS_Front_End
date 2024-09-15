@@ -15,6 +15,11 @@ header {
     z-index: 1000;
 }
 
+.header-right a:hover img {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+}
+
 .navbar {
     border: 3.5px solid #4179df;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
