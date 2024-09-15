@@ -416,3 +416,23 @@ footer {
 .logout-button:hover {
     background-color: #c20000;
 }
+
+
+
+
+/* button-to-cart */
+.button-to-cart{
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    padding-left: 200px;
+    padding-bottom: 20px;
+}
