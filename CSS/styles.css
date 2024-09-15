@@ -1,6 +1,80 @@
 body {
     margin: 0;
+    font-family: Arial, sans-serif;
 }
+
+.submit-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.submit-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.image-section {
+    display: flex;
+    flex-direction: column; /* Изменено на column для вертикального размещения */
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.ad-image {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.add-picture {
+    margin-top: 10px; /* Отступ сверху для кнопки */
+    padding: 10px 20px;
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-picture:hover {
+    background-color: #005b99;
+}
+
+.ad-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.ad-form label {
+    font-weight: bold;
+}
+
+.ad-form select, .ad-form textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.ad-form button {
+    padding: 10px 20px;
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.ad-form button:hover {
+    background-color: #005b99;
+}
+
 
 /* Header and Navigation */
 header {
