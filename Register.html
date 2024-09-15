@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Profile</title>
     <link rel="stylesheet" href="./CSS/styles.css">
     <link rel="icon" href="/CSS/favicon.ico">
-    <link rel="stylesheet" href="merey_css/mer.css">
 </head>
 
 <body>
-    <!-- Header -->
     <header>
         <div class="header-left">
             <a href="Home.html">
@@ -38,47 +36,27 @@
             <li><a href="Personal_account.html">Personal accounts</a></li>
         </ul>
     </nav>
-
-    <center>
-            <h2>Find Your Perfect Lease</h2>
-            <p>Explore the best rental properties in the city with HouseHub.</p>
-    </center>
-
+    
     <!-- Main -->
     <main>
-        <!-- Lease Properties Section -->
-        <section>
-            <center>
-            <!-- Property 1 -->
-            <figure>
-                <img src="./Assets/жк4.webp" alt="Residential Complex">
-                <figcaption>
-                <h3>Residential complex in City Center</h3>
-                <p>This spacious 3-bedroom apartment is located in the heart of the city, offering stunning views and modern amenities.</p>
-                </figcaption>
-            </figure>
-            <hr width="50%">
+        <h2>Profile</h2>
+        <form action="#" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name"><br><br>
 
-            <!-- Property 2 -->
-            <figure>
-                <img src="./Assets/фотка жк2.webp" alt="Residential Complex">
-                <figcaption>
-                    <h3>Cozy House in a Quiet Neighborhood</h3>
-                    <p>Perfect for families, this 4-bedroom house offers a large backyard, close proximity to schools, and a peaceful atmosphere.</p>
-                </figcaption>
-            </figure>
-            <hr width="50%">
-            
-             <!-- Property 3 -->
-             <figure>
-                <img src="./Assets/фотка жк3.webp" alt="Residential Complex">
-                <figcaption>
-                    <h3>Modern Loft with Open Design</h3>
-                    <p>This stylish 2-bedroom loft features an open design, high ceilings, and plenty of natural light, ideal for professionals.</p>
-                </figcaption>
-            </figure>
-            </center>
-        </section>
+            <label for="surname">Surname:</label>
+            <input type="text" id="surname" name="surname"><br><br>
+
+            <label for="name">Email:</label>
+            <input type="email" id="email" name="email"><br><br>
+
+            <label for="surname">Phone number:</label>
+            <input type="tel" id="phone" name="phone"><br><br>
+
+            <a href="Home.html">
+                <button type="button">Save Profile</button>
+            </a>
+        </form>
     </main>
 
     <!-- Footer -->
