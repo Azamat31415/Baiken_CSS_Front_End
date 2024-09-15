@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buildings</title>
     <link rel="stylesheet" href="./CSS/styles.css">
+    <link rel="stylesheet" href="./CSS/yersultan_css/buildings.css">
     <link rel="icon" href="/CSS/favicon.ico">
 </head>
 
@@ -41,45 +42,119 @@
     <!-- Main -->
     <main>
             <div class="buildings-title">
-            <h2>New buildings in Kazakhstan</h2>
-            <p><em>3 new buildings in <strong>Astana</strong></em></p>
+            <h1>New buildings in Kazakhstan</h1>
+            <p class="buildings-title-text"><em>3 new buildings in <strong>Astana</strong></em></p>
             </div>
             <br>
-            <div class="builds_tape">
-            <figure>
-                <img src="./Assets/Buildings_img/salt.jpg" alt="No image found" height="45%" width="45%">
-                <figcaption>
-                <h3>from 280,000 ₸ per m²</h3>
-                <h2>Salt Residential complex</h2>
-                <p>Astana, Yesil district, E-779 street, 32</p>
-                <p>9 appartments</p>
-                <h2><strong>+7-701-701-7071</strong></h2>
-                </figcaption>
-            </figure>
-            <hr><br>
-            <figure>
-                <img src="./Assets/Buildings_img/photo.jpg" alt="No image found" height="45%" width="45%">
-                <figcaption>
-                <h3>from 440,000 ₸ per m²</h3>
-                <h2>Honnete Residential complex</h2>
-                <p>Astana, Yesil district, Turan street, 77</p>
-                <p>7 appartments</p>
-                <h2><strong>+7-701-701-7071</strong></h2>
-                </figcaption>
-            </figure>
-            <hr><br>
-            <figure>
-                <img src="./Assets/Buildings_img/photo (1).jpg" alt="No image found" height="45%" width="45%">
-                <figcaption>
-                <h3>from 491,653 ₸ per m²</h3>
-                <h2>BUQAR JYRAU EXCLUSIVE Residential complex</h2>
-                <p>Astana, Yesil district, Turan street, 52/5, 52/6, 52/7</p>
-                <p>5 appartments</p>
-                <h2><strong>+7-701-701-7071</strong></h2>
-                </figcaption>
-            </figure>
-            <br>
+            
+            <div class="main-builds">
+            <div class="main-left-builds">
+            <div class="filter">
+                <label for="selection of city"><h3>City:</h3></label>
+                <select id="property" name="property">
+                    <option value="Whole Kazakhstan">Whole Kazakhstan</option>
+                    <option value="Astana">Astana</option>
+                    <option value="Almaty">Almaty</option>
+                </select>
+        
+                <h3>Number of rooms</h3>
+                <ul>
+                    <li><input type="checkbox"> <label for="rooms1">1</label></li>
+                    <li><input type="checkbox"> <label for="rooms2">2</label></li>
+                    <li><input type="checkbox"> <label for="rooms3">3</label></li>
+                    <li><input type="checkbox"> <label for="rooms4">4+</label></li>
+                </ul>
+        
+                <h3>Price</h3>
+                <label for="price from">FROM:</label>
+                    <textarea id="price from" name="price from" rows="1" cols="10"></textarea> tenge.
+                <br><br>
+
+                <label for="price to">TO:</label>
+                    <textarea id="price to" name="price to" rows="1" cols="10"></textarea> tenge.
+                <br><br>
+
+                
+                <h3>Purchase method:</h3>
+                <ul>
+                    <li><input type="checkbox" id="installment plan"> <label for="installment plan">Installment plan</label></li>
+                    <li><input type="checkbox" id="mortgage"> <label for="mortgage">Mortgage</label></li>
+                </ul>
+            </div>
         </div>
+    
+            
+        <div class="main-right-builds">
+            <div class="builds_tape">
+                <figure>
+                    <img src="./Assets/Buildings_img/salt.jpg" alt="No image found">
+                    <figcaption>
+                        <h3>from 280,000 ₸ per m²</h3>
+                        <h2>Salt Residential complex</h2>
+                        <p>Astana, Yesil district, E-779 street, 32</p>
+                        <p>9 appartments</p>
+                        <h2><strong>+7-701-701-7071</strong></h2>
+                    </figcaption>
+                </figure>
+                
+                <figure>
+                    <img src="./Assets/Buildings_img/photo.jpg" alt="No image found">
+                    <figcaption>
+                        <h3>from 440,000 ₸ per m²</h3>
+                        <h2>Honnete Residential complex</h2>
+                        <p>Astana, Yesil district, Turan street, 77</p>
+                        <p>7 appartments</p>
+                        <h2><strong>+7-701-701-7071</strong></h2>
+                    </figcaption>
+                </figure>
+        
+                <figure>
+                    <img src="./Assets/Buildings_img/photo (1).jpg" alt="No image found">
+                    <figcaption>
+                        <h3>from 491,653 ₸ per m²</h3>
+                        <h2>BUQAR JYRAU EXCLUSIVE Residential complex</h2>
+                        <p>Astana, Yesil district, Turan street, 52/5, 52/6, 52/7</p>
+                        <p>5 appartments</p>
+                        <h2><strong>+7-701-701-7071</strong></h2>
+                    </figcaption>
+                </figure>
+
+                <figure>
+                    <img src="./Assets/Buildings_img/salt.jpg" alt="No image found">
+                    <figcaption>
+                        <h3>from 280,000 ₸ per m²</h3>
+                        <h2>Salt Residential complex</h2>
+                        <p>Astana, Yesil district, E-779 street, 32</p>
+                        <p>9 appartments</p>
+                        <h2><strong>+7-701-701-7071</strong></h2>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="./Assets/Buildings_img/photo.jpg" alt="No image found">
+                    <figcaption>
+                        <h3>from 440,000 ₸ per m²</h3>
+                        <h2>Honnete Residential complex</h2>
+                        <p>Astana, Yesil district, Turan street, 77</p>
+                        <p>7 appartments</p>
+                        <h2><strong>+7-701-701-7071</strong></h2>
+                    </figcaption>
+                </figure>
+        
+                <figure>
+                    <img src="./Assets/Buildings_img/photo (1).jpg" alt="No image found">
+                    <figcaption>
+                        <h3>from 491,653 ₸ per m²</h3>
+                        <h2>BUQAR JYRAU EXCLUSIVE Residential complex</h2>
+                        <p>Astana, Yesil district, Turan street, 52/5, 52/6, 52/7</p>
+                        <p>5 appartments</p>
+                        <h2><strong>+7-701-701-7071</strong></h2>
+                    </figcaption>
+                </figure>
+        
+                
+            </div>
+        </div>
+</div>
     </main>
 
     <!-- Footer -->
