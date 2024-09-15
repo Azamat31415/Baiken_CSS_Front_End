@@ -43,6 +43,8 @@ nav ul li a {
     color: white;
     padding: 15px 20px;
     display: block;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
 nav ul li:first-child a {
