@@ -67,12 +67,3 @@ footer {
     align-items: center;
     flex-wrap: wrap;
 }
-
-.footer-info p {
-    margin: 5px 0;
-}
-
-.footer-info a {
-    color: white;
-    text-decoration: underline;
-}
