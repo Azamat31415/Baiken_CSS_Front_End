@@ -4,6 +4,7 @@ body {
 
 .logo {
     margin: 15px;
+    width: 200px;
 }
 
 .navbar {
@@ -40,4 +41,15 @@ nav ul li:first-child a {
 
 nav ul li a:hover {
     background-color: #005b99; 
+}
+
+.nav-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
 }
