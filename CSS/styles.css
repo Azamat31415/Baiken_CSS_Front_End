@@ -14,7 +14,7 @@ body {
 
 /* Cart */
 .cart {
-    background-image: url(/Assets/acc.png);
+    background-image: url(/Assets/cart.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
