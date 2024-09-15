@@ -110,6 +110,10 @@ footer {
 }
 
 /* Profile, login, register */
+.main-profile {
+    margin: 20px 0;
+}
+
 .profile-container {
     max-width: 400px;
     margin: 0 auto;
