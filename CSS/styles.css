@@ -12,11 +12,6 @@ body {
     padding: 0;
 }
 
-.dd-text {
-    text-align: center;
-    margin-right: 40px;
-}
-
 /* Header and Navigation */
 header {
     display: flex;
