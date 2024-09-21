@@ -17,7 +17,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    padding: 10px 20px;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: sticky;
@@ -27,7 +27,7 @@ header {
 
 .header-right {
     display: flex;
-    gap: 40px;
+    gap: 20px;
 }
 
 .header-right a:hover img {
@@ -35,57 +35,39 @@ header {
     transition: transform 0.2s ease-in-out;
 }
 
-.navbar-body {
-    border: 3.5px solid #4179df;
+.logo {
+    width: 150px;
+}
+
+.navbar {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.logo {
-    width: 200px;
-    margin: 10px;
+.nav-link {
+    color: white !important;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: space-around;
-    background-color: #007acc;
+.nav-link:hover {
+    background-color: #005b99 !important;
 }
 
-nav ul li {
-    margin: 0;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    padding: 15px 20px;
-    display: block;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-nav ul li:first-child a {
-    border-left: none;
-}
-
-nav ul li a:hover {
-    background-color: #005b99;
-}
 
 .icon {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     object-fit: contain;
+}
+
+/* Main content */
+.container {
+    padding: 0 15px;
 }
 
 /* Footer */
 footer {
     background-color: #007acc;
     color: white;
-    padding: 0;
+    padding: 20px 0;
     text-align: center;
     border: 3px solid #4179df;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -93,21 +75,33 @@ footer {
 
 .footer-container {
     display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    max-width: 1200px;
-    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
 }
 
 .footer-column {
-    flex: 1;
-    padding: 0 20px;
+    margin: 10px 0;
 }
 
 .footer-column img {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px; 
     margin: 5px;
+}
+
+/* Responsive Styles */
+@media (min-width: 768px) {
+    .footer-container {
+        flex-direction: row;
+        justify-content: space-around;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .footer-column {
+        flex: 1;
+        padding: 0 20px;
+    }
 }
 
 /* Cart */
