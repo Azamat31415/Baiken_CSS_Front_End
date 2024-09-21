@@ -48,25 +48,6 @@ body {
     margin-bottom: 30px;
 }
 
-.cart-button {
-    padding: 10px 20px;
-    background-color: #007acc;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.cart-button:hover {
-    background-color: #005b99;
-}
-
-.cart-button:active {
-    transform: scale(0.98);
-}
-
 /* Personal account */
 .pers-acc {
     background-image: url(/Assets/acc.png);
@@ -96,25 +77,6 @@ body {
     font-size: 18px;
     color: #555;
     margin-bottom: 30px;
-}
-
-.personal-account-button {
-    padding: 10px 20px;
-    background-color: #007acc;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.personal-account-button:hover {
-    background-color: #005b99;
-}
-
-.personal-account-button:active {
-    transform: scale(0.98);
 }
 
 /* Submit an Ad */
@@ -153,21 +115,6 @@ body {
     border-radius: 10px;
 }
 
-.add-picture {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #007acc;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.add-picture:hover {
-    background-color: #005b99;
-}
-
 .ad-form {
     display: flex;
     flex-direction: column;
@@ -183,21 +130,6 @@ body {
     border-radius: 5px;
     border: 1px solid #ccc;
 }
-
-.ad-form button {
-    padding: 10px 20px;
-    background-color: #007acc;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.ad-form button:hover {
-    background-color: #005b99;
-}
-
 
 /* Header and Navigation */
 header {
@@ -222,7 +154,7 @@ header {
     transition: transform 0.2s ease-in-out;
 }
 
-.navbar {
+.navbar-body {
     border: 3.5px solid #4179df;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
@@ -391,22 +323,6 @@ footer {
     margin-bottom: 20px;
 }
 
-.button {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 0 5px;
-    background-color: #007acc;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s;
-}
-
-.button:hover {
-    background-color: #005b99;
-}
-
 .avatar-container {
     margin-bottom: 20px;
 }
@@ -436,20 +352,6 @@ footer {
     border: 1px solid #ccc;
 }
 
-.submit-button {
-    padding: 10px 20px;
-    background-color: #4da3ff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.submit-button:hover {
-    background-color: #0058e6;
-}
-
 .profile-avatar {
     width: 100px;
     height: 100px;
@@ -462,24 +364,6 @@ footer {
     margin: 20px 0;
     text-align: left;
 }
-
-.logout-button {
-    display: inline-block;
-    width: 100%;
-    padding: 10px;
-    background-color: #ff2626;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.logout-button:hover {
-    background-color: #c20000;
-}
-
-
-
 
 /* button-to-cart */
 .button-to-cart{
