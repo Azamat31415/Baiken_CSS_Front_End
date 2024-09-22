@@ -58,43 +58,72 @@
     <!-- Main -->
     <main class="submit-container">
         <h2>Submit an Ad</h2>
-        <div class="image-section">
-            <img src="https://ioscookbook.files.wordpress.com/2018/04/images-icon.jpg" alt="Picture of House" class="ad-image">
-            <a class="btn btn-primary">Add Picture</a>
-        </div>
-    
-        <form action="Personal_account.html" method="post" class="ad-form">
-            <label for="category">Select category:</label>
-            <select id="category" name="category">
-                <option value="Sell">Sell</option>
-                <option value="Rent">Rent</option>
-            </select>
-    
-            <label for="property">Select type of property:</label>
-            <select id="property" name="property">
-                <option value="Apartment">Apartment</option>
-                <option value="Cottage">Cottage</option>
-                <option value="Garage or parking">Garage or parking</option>
-                <option value="Commercial real estate">Commercial real estate</option>
-            </select>
-    
-            <label for="rooms">Number of rooms:</label>
-            <textarea id="rooms" name="rooms" rows="1" cols="10"></textarea>
-    
-            <label for="price">Price:</label>
-            <textarea id="price" name="price" rows="1" cols="10"></textarea>
-    
-            <label for="floor">Floor:</label>
-            <textarea id="floor" name="floor" rows="1" cols="5"></textarea>
-    
-            <label for="area">Area:</label>
-            <textarea id="area" name="area" rows="1" cols="5"></textarea>
-    
-            <label for="additional">Additional:</label>
-            <textarea id="additional" name="additional" rows="4" cols="50"></textarea>
 
-            <a href="Personal_account.html" class="btn btn-success">Submit</a>
-        </form>
+        <!-- Card for image -->
+        <div class="card mb-4">
+            <div class="card-body text-center">
+                <img src="https://ioscookbook.files.wordpress.com/2018/04/images-icon.jpg" alt="Picture of House" class="ad-image">
+                <a class="btn btn-primary mt-3">Add Picture</a>
+            </div>
+        </div>
+
+        <!-- Card for form -->
+        <div class="card">
+            <div class="card-body">
+                <form action="Personal_account.html" method="post" class="ad-form">
+                    
+                    <div class="mb-3">
+                        <label for="category">Select category:</label>
+                        <select id="category" name="category" class="form-select">
+                            <option value="Sell">Sell</option>
+                            <option value="Rent">Rent</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="property">Select type of property:</label>
+                        <select id="property" name="property" class="form-select">
+                            <option value="Apartment">Apartment</option>
+                            <option value="Cottage">Cottage</option>
+                            <option value="Garage or parking">Garage or parking</option>
+                            <option value="Commercial real estate">Commercial real estate</option>
+                        </select>
+                    </div>
+
+                    <!-- Input group for price -->
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">$</span>
+                        <textarea id="price" name="price" rows="1" cols="10" class="form-control" placeholder="Price"></textarea>
+                    </div>
+
+                    <!-- Floating label for rooms -->
+                    <div class="form-floating mb-3">
+                        <textarea id="rooms" name="rooms" rows="1" cols="10" class="form-control" placeholder="Number of rooms"></textarea>
+                        <label for="rooms">Number of rooms</label>
+                    </div>
+
+                    <!-- Floating label for floor -->
+                    <div class="form-floating mb-3">
+                        <textarea id="floor" name="floor" rows="1" cols="5" class="form-control" placeholder="Floor"></textarea>
+                        <label for="floor">Floor</label>
+                    </div>
+
+                    <!-- Floating label for area -->
+                    <div class="form-floating mb-3">
+                        <textarea id="area" name="area" rows="1" cols="5" class="form-control" placeholder="Area"></textarea>
+                        <label for="area">Area (sq. meters)</label>
+                    </div>
+
+                    <!-- Additional textarea with tooltip -->
+                    <div class="mb-3">
+                        <label for="additional" data-bs-toggle="tooltip" data-bs-placement="right" title="Describe any additional details">Additional:</label>
+                        <textarea id="additional" name="additional" rows="4" cols="50" class="form-control"></textarea>
+                    </div>
+
+                    <a href="Personal_account.html" class="btn btn-success mt-3">Submit</a>
+                </form>
+            </div>
+        </div>
     </main>
      
 
@@ -123,5 +152,8 @@
             </div>
         </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-QAAKQZ9xNWPVDTh3jVTVIu5R3O5NmX75xHJGsBXkcUq+yBoOCzK0c2xT1iNbfkgI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12LYTMxj6HnRzwAqspqxJoxgSoAB+HOl4qK7lA04Qf4ghK3z" crossorigin="anonymous"></script>
 </body>
 </html>
