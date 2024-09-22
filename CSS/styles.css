@@ -216,6 +216,12 @@ footer img {
 
 /* Buildings */
 
+.card-img-top {
+    width: 100%;
+    height: 200px; 
+    object-fit: cover; 
+}
+
 .buildings-title{
     background-image: url(/Assets/Buildings_img/IMG_4647.JPG);
     background-repeat: no-repeat;
@@ -227,64 +233,10 @@ footer img {
     text-shadow: 1px 1px 1px #000;
 }
 
-.main-builds{
-    display: flex;
-    justify-content: space-between;
-    padding: 0 20px;
-    background-color: #fff;
-}
-
-.main-left-builds {
-    width: 300px;
-    margin-right: 10px;
-}
-
-.main-right-builds {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    margin-left: 10px;
-}
-
 .buildings-title-text{
     font-size: 27px;
 }
 
-.filter {
-    width: 250px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.main-right-builds {
-    display: flex;
-    flex-wrap: wrap; 
-    gap: 20px; 
-}
-
-.builds_tape {
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: space-between; 
-}
-
-.builds_tape figure {
-    width: calc(33.33% - 20px); 
-    margin: 10px;
-    background-color: #f0f0f0; 
-}
-
-.builds_tape img {
-    width: 100%; 
-    height: 300px;
-    border-radius: 5px;
-}
-
-.builds_tape figcaption {
-    text-align: center;
-}
 
 /* Profile, login, register */
 .main-profile {
