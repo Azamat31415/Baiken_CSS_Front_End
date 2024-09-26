@@ -5,10 +5,6 @@ body {
     font-family: "Montserrat", sans-serif;
 }
 
-main{
-    text-align: center;
-}
-
 .filter-container {
     width: 100%;
     max-width: 800px;
@@ -57,64 +53,23 @@ input[type="checkbox"] {
     background-color:darkcyan;
 }
 
-figure {
-    display: flex;
-    flex-direction: row;
-    border: 1px solid #e2e2e2;
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 20px;
-    background-color: #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    margin: 20px auto;
-}
-
-figure img {
-    border-radius: 8px;
-    margin-right: 15px;
-    width: 500px;
-    height: 300px;
-}
-
-figure figcaption {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-figure h2 {
-    font-size: 18px;
-    margin: 0;
-    color: #1e90ff;
-}
-
-figure h2:last-of-type {
-    font-size: 20px;
-    margin: 10px 0;
-    color: #000;
-}
-
-figure p {
-    font-size: 14px;
-    color: #555;
-}
-
-.actions {
-    display: flex;
-    gap: 10px;
-}
-
-button {
-    background-color: #1e90ff;
+/* Footer */
+footer {
     color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 12px;
-    cursor: pointer;
+    padding: 20px 0;
+    text-align: center;
+    border: 3px solid #4179df;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-button:hover {
-    background-color: #4682b4;
+footer img {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+}
+
+
+.reg-button-builds{
+    text-decoration: none; 
+    color: inherit;
 }
