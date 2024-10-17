@@ -79,7 +79,7 @@
                     <input type="tel" id="phone" name="phone">
                 </form>
             </div>
-            <a href="Login.html" class="btn btn-success">Submit</a>
+            <a href="Login.html" class="btn btn-success" id="submit-btn">Submit</a>
         </div>
     </main>
 
@@ -108,5 +108,12 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('submit-btn').addEventListener('click', function(event) {
+            alert("Registration successful!");
+        });
+    </script>
+
 </body>
 </html>

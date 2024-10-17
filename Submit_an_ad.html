@@ -117,7 +117,7 @@
                         <textarea id="additional" name="additional" rows="4" cols="50" class="form-control"></textarea>
                     </div>
 
-                    <a href="Personal_account.html" class="btn btn-success mt-3">Submit</a>
+                    <a href="Personal_account.html" class="btn btn-success mt-3" id ="submit-btn">Submit</a>
                 </form>
             </div>
         </div>
@@ -149,5 +149,12 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('submit-btn').addEventListener('click', function(event) {
+            alert("Submition successful!");
+        });
+    </script>
+
 </body>
 </html>

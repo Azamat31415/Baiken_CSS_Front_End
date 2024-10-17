@@ -73,7 +73,7 @@
                     <input type="text" id="surname" name="surname">
                 </form>
             </div>
-            <a href="Profile.html" class="btn btn-success">Submit</a>
+            <a href="Profile.html" class="btn btn-success" id="submit-btn">Submit</a>
         </div>
     </main>
 
@@ -103,7 +103,11 @@
         </div>
     </footer>
 
-    <script src="javascript/Azamat.js"></script>
+    <script>
+        document.getElementById('submit-btn').addEventListener('click', function(event) {
+            alert("Login successful!");
+        });
+    </script>
 
 </body>
 </html>
