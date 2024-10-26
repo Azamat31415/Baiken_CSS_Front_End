@@ -1,3 +1,24 @@
+window.onload = function() {
+    const currentUser = localStorage.getItem("currentUser");
+    if (currentUser) {
+        window.location.href = "Profile.html";
+    }
+};
+
+document.addEventListener('DOMContentLoaded', function() {
+    const cartIcon = document.getElementById('cart-icon');
+    if (cartIcon) {
+        cartIcon.addEventListener('click', function(event) {
+            const currentUser = localStorage.getItem("currentUser");
+            if (!currentUser) {
+                window.location.href = "Login.html";
+            } else {
+                window.location.href = "Cart.html";
+            }
+        });
+    }
+});
+
 document.getElementById('submit-btn').addEventListener('click', function(event) {
     event.preventDefault();
 
@@ -33,9 +54,7 @@ document.getElementById('submit-btn').addEventListener('click', function(event) 
 
         if (user) {
             alert("Login successful!");
-
             localStorage.setItem("currentUser", JSON.stringify(user));
-
             window.location.href = 'Profile.html';
         } else {
             alert("Invalid email or password.");

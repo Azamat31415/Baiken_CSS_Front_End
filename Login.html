@@ -108,23 +108,6 @@
     </footer>
 
     <script src="./JS/azamat_js/Login.js"></script>
-    <script>
-        window.onload = function() {
-            const currentUser = localStorage.getItem("currentUser");
-            if (currentUser) {
-                window.location.href = "Profile.html";
-            }
-        };
-
-        document.getElementById('cart-icon').addEventListener('click', function(event) {
-            const currentUser = localStorage.getItem("currentUser");
-            if (!currentUser) {
-                window.location.href = "Cart.html";
-            } else {
-                window.location.href = "Profile.html";
-            }
-        });
-    </script>
 
 </body>
 </html>
