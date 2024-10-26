@@ -5,20 +5,6 @@ window.onload = function() {
     }
 };
 
-document.addEventListener('DOMContentLoaded', function() {
-    const cartIcon = document.getElementById('cart-icon');
-    if (cartIcon) {
-        cartIcon.addEventListener('click', function(event) {
-            const currentUser = localStorage.getItem("currentUser");
-            if (!currentUser) {
-                window.location.href = "Login.html";
-            } else {
-                window.location.href = "Cart.html";
-            }
-        });
-    }
-});
-
 document.getElementById('submit-btn').addEventListener('click', function(event) {
     event.preventDefault();
 
@@ -47,17 +33,20 @@ document.getElementById('submit-btn').addEventListener('click', function(event) 
     if (isEmailValid && isPasswordValid) {
         const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
 
-        const user = registeredUsers.find(user => user.email === email.value.trim() && user.password === password.value.trim());
-
-        console.log('Registered Users:', registeredUsers);
-        console.log('User found:', user);
-
-        if (user) {
+        if (email.value.trim() === '230147@astanait.edu.kz' && password.value.trim() === 'aza061005') {
             alert("Login successful!");
-            localStorage.setItem("currentUser", JSON.stringify(user));
-            window.location.href = 'Profile.html';
+            localStorage.setItem("currentUser", JSON.stringify({ email: email.value.trim(), role: 'admin' }));
+            window.location.href = 'AdminPanel.html';
         } else {
-            alert("Invalid email or password.");
+            const user = registeredUsers.find(user => user.email === email.value.trim() && user.password === password.value.trim());
+
+            if (user) {
+                alert("Login successful!");
+                localStorage.setItem("currentUser", JSON.stringify(user));
+                window.location.href = 'Profile.html';
+            } else {
+                alert("Invalid email or password.");
+            }
         }
     }
 });

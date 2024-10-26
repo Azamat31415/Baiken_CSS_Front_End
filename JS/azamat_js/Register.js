@@ -30,26 +30,24 @@ document.getElementById('submit-btn').addEventListener('click', function(event) 
     const isPasswordValid = validateField(password, passwordError);
 
     if (isNameValid && isSurnameValid && isEmailValid && isPasswordValid) {
-        let registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
-        
-        const emailExists = registeredUsers.some(user => user.email === email.value.trim());
+        const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
 
-        console.log('Registered Users:', registeredUsers);
-        console.log('Email exists:', emailExists);
-
-        if (emailExists) {
-            alert("This email is already registered.");
-        } else {
-            registeredUsers.push({
-                name: name.value.trim(),
-                surname: surname.value.trim(),
-                email: email.value.trim(),
-                password: password.value.trim()
-            });
-
-            localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
-            alert("Registration successful!");
-            window.location.href = 'Login.html';
+        const userExists = registeredUsers.some(user => user.email === email.value.trim());
+        if (userExists) {
+            alert("User already exists. Please use a different email.");
+            return;
         }
+
+        const newUser = {
+            name: name.value.trim(),
+            surname: surname.value.trim(),
+            email: email.value.trim(),
+            password: password.value.trim()
+        };
+        registeredUsers.push(newUser);
+        localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
+
+        alert("Registration successful!");
+        window.location.href = "Login.html";
     }
 });
