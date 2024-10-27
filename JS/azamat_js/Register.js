@@ -34,7 +34,7 @@ document.getElementById('submit-btn').addEventListener('click', function(event) 
 
         const userExists = registeredUsers.some(user => user.email === email.value.trim());
         if (userExists) {
-            alert("User already exists. Please use a different email.");
+            showAlert("User already exists. Please use a different email.");
             return;
         }
 
@@ -47,7 +47,19 @@ document.getElementById('submit-btn').addEventListener('click', function(event) 
         registeredUsers.push(newUser);
         localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
 
-        alert("Registration successful!");
-        window.location.href = "Login.html";
+        showAlert("Registration successful!", () => {
+            window.location.href = "Login.html";
+        });
     }
 });
+
+function showAlert(message, callback) {
+    const alertBox = document.getElementById('registerAlert');
+    alertBox.querySelector('p').textContent = message;
+    alertBox.style.display = 'flex';
+
+    alertBox.querySelector('button').onclick = () => {
+        alertBox.style.display = 'none';
+        if (callback) callback();
+    };
+}
