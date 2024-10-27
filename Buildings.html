@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="./CSS/styles.css">
     <link rel="stylesheet" href="./CSS/yersultan_css/buildings.css">
     <link rel="icon" href="/CSS/favicon.ico">
-
-
-
 </head>
 
 <body>
@@ -24,7 +21,7 @@
 
         <div class="header-right">
             <a href="Cart.html">
-                <img class="icon" src="./Assets/корзина.png" alt="Cart">
+                <img class="icon" src="./Assets/корзина.png" alt="Cart" id="cart-icon">
             </a>
             <a href="Login.html">
                 <img class="icon" src="./Assets/empty_avatar.png" alt="Profile">
@@ -77,20 +74,20 @@
                             </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
-                                    <input type="checkbox" id="apartment1" name="apartment" value="1-room">
-                                    <label for="apartment1">1-room  |  35m²+  |  91 200 000₸+</label>
+                                    <input type="checkbox" id="apartment1-card1" name="apartment" value="1-room">
+                                    <label for="apartment1-card1">1-room  |  35m²+  |  91 200 000₸+</label>
                                 </li>
                                 <li class="list-group-item">
-                                    <input type="checkbox" id="apartment2" name="apartment" value="2-room">
-                                    <label for="apartment2">2-room  |  50m²+  |  91 200 000₸+</label>
+                                    <input type="checkbox" id="apartment2-card1" name="apartment" value="2-room">
+                                    <label for="apartment2-card1">2-room  |  50m²+  |  91 200 000₸+</label>
                                 </li>
                                 <li class="list-group-item">
-                                    <input type="checkbox" id="apartment3" name="apartment" value="3-room">
-                                    <label for="apartment3">3-room  |  80m²+  |  91 200 000₸+</label>
+                                    <input type="checkbox" id="apartment3-card1" name="apartment" value="3-room">
+                                    <label for="apartment3-card1">3-room  |  80m²+  |  91 200 000₸+</label>
                                 </li>
                             </ul>
                             <div class="mt-auto">
-                                <button type="button" class="m-3 btn btn-info btn-lg">Add to cart</button>
+                                <button type="button" class="m-3 btn btn-info btn-lg" onclick="addToCart(this)">Add to cart</button>
                             </div>
                         </div>
                     </div>
@@ -106,24 +103,24 @@
                             </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
-                                    <input type="checkbox" id="apartment1" name="apartment" value="1-room">
-                                    <label for="apartment1">1-room  |  35m²+  |  18 200 000₸+</label>
+                                    <input type="checkbox" id="apartment1-card2" name="apartment" value="1-room">
+                                    <label for="apartment1-card2">1-room  |  35m²+  |  18 200 000₸+</label>
                                 </li>
                                 <li class="list-group-item">
-                                    <input type="checkbox" id="apartment2" name="apartment" value="2-room">
-                                    <label for="apartment2">2-room  |  50m²+  |  31 200 000₸+</label>
+                                    <input type="checkbox" id="apartment2-card2" name="apartment" value="2-room">
+                                    <label for="apartment2-card2">2-room  |  50m²+  |  31 200 000₸+</label>
                                 </li>
                                 <li class="list-group-item">
-                                    <input type="checkbox" id="apartment3" name="apartment" value="3-room">
-                                    <label for="apartment3">3-room  |  80m²+  |  45 200 000₸+</label>
+                                    <input type="checkbox" id="apartment3-card2" name="apartment" value="3-room">
+                                    <label for="apartment3-card2">3-room  |  80m²+  |  45 200 000₸+</label>
                                 </li>
                                 <li class="list-group-item">
-                                    <input type="checkbox" id="apartment4" name="apartment" value="4-room">
-                                    <label for="apartment4">4-room  |  100m²+  |  58 200 000₸+</label>
+                                    <input type="checkbox" id="apartment4-card2" name="apartment" value="4-room">
+                                    <label for="apartment4-card2">4-room  |  100m²+  |  58 200 000₸+</label>
                                 </li>
                             </ul>
                             <div class="mt-auto">
-                                <button type="button" class="m-3 btn btn-info btn-lg">Add to cart</button>
+                                <button type="button" class="m-3 btn btn-info btn-lg" onclick="addToCart(this)">Add to cart</button>
                             </div>
                         </div>
                     </div>
@@ -138,20 +135,20 @@
                             </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
-                                    <input type="checkbox" id="apartment1" name="apartment" value="1-room">
+                                    <input type="checkbox" id="apartment1-card3" name="apartment" value="1-room">
                                     <label for="apartment1">1-room  |  35m²+  |  91 200 000₸+</label>
                                 </li>
                                 <li class="list-group-item">
-                                    <input type="checkbox" id="apartment2" name="apartment" value="2-room">
+                                    <input type="checkbox" id="apartment2-card3" name="apartment" value="2-room">
                                     <label for="apartment2">2-room  |  50m²+  |  91 200 000₸+</label>
                                 </li>
                                 <li class="list-group-item">
-                                    <input type="checkbox" id="apartment3" name="apartment" value="3-room">
+                                    <input type="checkbox" id="apartment3-card3" name="apartment" value="3-room">
                                     <label for="apartment3">3-room  |  80m²+  |  91 200 000₸+</label>
                                 </li>
                             </ul>
                             <div class="mt-auto">
-                                <button type="button" class="m-3 btn btn-info btn-lg">Add to cart</button>
+                                <button type="button" class="m-3 btn btn-info btn-lg" onclick="addToCart(this)">Add to cart</button>
                             </div>
                         </div>
                     </div>
@@ -167,24 +164,24 @@
                             </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
-                                    <input type="checkbox" id="apartment1" name="apartment" value="1-room">
+                                    <input type="checkbox" id="apartment1-card4" name="apartment" value="1-room">
                                     <label for="apartment1">1-room  |  35m²+  |  18 200 000₸+</label>
                                 </li>
                                 <li class="list-group-item">
-                                    <input type="checkbox" id="apartment2" name="apartment" value="2-room">
+                                    <input type="checkbox" id="apartment2-card4" name="apartment" value="2-room">
                                     <label for="apartment2">2-room  |  50m²+  |  31 200 000₸+</label>
                                 </li>
                                 <li class="list-group-item">
-                                    <input type="checkbox" id="apartment3" name="apartment" value="3-room">
+                                    <input type="checkbox" id="apartment3-card4" name="apartment" value="3-room">
                                     <label for="apartment3">3-room  |  80m²+  |  45 200 000₸+</label>
                                 </li>
                                 <li class="list-group-item">
-                                    <input type="checkbox" id="apartment4" name="apartment" value="4-room">
+                                    <input type="checkbox" id="apartment4-card4" name="apartment" value="4-room">
                                     <label for="apartment4">4-room  |  100m²+  |  58 200 000₸+</label>
                                 </li>
                             </ul>
                             <div class="mt-auto">
-                                <button type="button" class="m-3 btn btn-info btn-lg">Add to cart</button>
+                                <button type="button" class="m-3 btn btn-info btn-lg" onclick="addToCart(this)">Add to cart</button>
                             </div>
                         </div>
                     </div>
@@ -202,20 +199,20 @@
                             </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
-                                    <input type="checkbox" id="apartment1" name="apartment" value="1-room">
+                                    <input type="checkbox" id="apartment1-card5" name="apartment" value="1-room">
                                     <label for="apartment1">1-room  |  35m²+  |  91 200 000₸+</label>
                                 </li>
                                 <li class="list-group-item">
-                                    <input type="checkbox" id="apartment2" name="apartment" value="2-room">
+                                    <input type="checkbox" id="apartment2-card5" name="apartment" value="2-room">
                                     <label for="apartment2">2-room  |  50m²+  |  91 200 000₸+</label>
                                 </li>
                                 <li class="list-group-item">
-                                    <input type="checkbox" id="apartment3" name="apartment" value="3-room">
+                                    <input type="checkbox" id="apartment3-card5" name="apartment" value="3-room">
                                     <label for="apartment3">3-room  |  80m²+  |  91 200 000₸+</label>
                                 </li>
                             </ul>
                             <div class="mt-auto">
-                                <button type="button" class="m-3 btn btn-info btn-lg">Add to cart</button>
+                                <button type="button" class="m-3 btn btn-info btn-lg" onclick="addToCart(this)">Add to cart</button>
                             </div>
                         </div>
                     </div>
@@ -231,24 +228,24 @@
                             </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
-                                    <input type="checkbox" id="apartment1" name="apartment" value="1-room">
+                                    <input type="checkbox" id="apartment1-card6" name="apartment" value="1-room">
                                     <label for="apartment1">1-room  |  35m²+  |  18 200 000₸+</label>
                                 </li>
                                 <li class="list-group-item">
-                                    <input type="checkbox" id="apartment2" name="apartment" value="2-room">
+                                    <input type="checkbox" id="apartment2-card6" name="apartment" value="2-room">
                                     <label for="apartment2">2-room  |  50m²+  |  31 200 000₸+</label>
                                 </li>
                                 <li class="list-group-item">
-                                    <input type="checkbox" id="apartment3" name="apartment" value="3-room">
+                                    <input type="checkbox" id="apartment3-card6" name="apartment" value="3-room">
                                     <label for="apartment3">3-room  |  80m²+  |  45 200 000₸+</label>
                                 </li>
                                 <li class="list-group-item">
-                                    <input type="checkbox" id="apartment4" name="apartment" value="4-room">
+                                    <input type="checkbox" id="apartment4-card6" name="apartment" value="4-room">
                                     <label for="apartment4">4-room  |  100m²+  |  58 200 000₸+</label>
                                 </li>
                             </ul>
                             <div class="mt-auto">
-                                <button type="button" class="m-3 btn btn-info btn-lg">Add to cart</button>
+                                <button type="button" class="m-3 btn btn-info btn-lg" onclick="addToCart(this)">Add to cart</button>
                             </div>
                         </div>
                     </div>
@@ -264,16 +261,16 @@
                             </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
-                                    <input type="checkbox" id="apartment2" name="apartment" value="2-room">
+                                    <input type="checkbox" id="apartment2-card7" name="apartment" value="2-room">
                                     <label for="apartment2">2-room  |  50m²+  |  27 200 000₸+</label>
                                 </li>
                                 <li class="list-group-item">
-                                    <input type="checkbox" id="apartment3" name="apartment" value="3-room">
+                                    <input type="checkbox" id="apartment3-card7" name="apartment" value="3-room">
                                     <label for="apartment3">3-room  |  75m²+  |  50 500 000₸+</label>
                                 </li>
                             </ul>
                             <div class="mt-auto">
-                                <button type="button" class="m-3 btn btn-info btn-lg">Add to cart</button>
+                                <button type="button" class="m-3 btn btn-info btn-lg" onclick="addToCart(this)">Add to cart</button>
                             </div>
                         </div>
                     </div>
@@ -289,26 +286,21 @@
                             </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
-                                    <input type="checkbox" id="apartment2" name="apartment" value="2-room">
+                                    <input type="checkbox" id="apartment2-card8" name="apartment" value="2-room">
                                     <label for="apartment2">2-room  |  50m²+  |  27 200 000₸+</label>
                                 </li>
                                 <li class="list-group-item">
-                                    <input type="checkbox" id="apartment3" name="apartment" value="3-room">
+                                    <input type="checkbox" id="apartment3-card8" name="apartment" value="3-room">
                                     <label for="apartment3">3-room  |  75m²+  |  50 500 000₸+</label>
                                 </li>
                             </ul>
                             <div class="mt-auto">
-                                <button type="button" class="m-3 btn btn-info btn-lg">Add to cart</button>
+                                <button type="button" class="m-3 btn btn-info btn-lg" onclick="addToCart(this)">Add to cart</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
-
-
-                
-                
 </div>
     </main>
 
@@ -338,6 +330,6 @@
         </div>
     </footer>
 
-    <script src="javascript/yers.js"></script>
+    <script src="JS/yers_js/builds.js"></script>
 </body>
 </html>
