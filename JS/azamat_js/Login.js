@@ -35,7 +35,13 @@ document.getElementById('submit-btn').addEventListener('click', function(event) 
 
         if (email.value.trim() === '230147@astanait.edu.kz' && password.value.trim() === 'aza061005') {
             alert("Login successful!");
-            localStorage.setItem("currentUser", JSON.stringify({ email: email.value.trim(), role: 'admin' }));
+            localStorage.setItem("currentUser", JSON.stringify({ 
+                name: 'Azamat', 
+                surname: 'Sailaubek', 
+                email: email.value.trim(), 
+                password: password.value.trim(), 
+                role: 'admin' 
+            }));
             window.location.href = 'AdminPanel.html';
         } else {
             const user = registeredUsers.find(user => user.email === email.value.trim() && user.password === password.value.trim());

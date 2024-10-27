@@ -4,10 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = "Login.html";
     } else {
         const user = JSON.parse(currentUser);
-        document.getElementById('profile-name').textContent = user.name;
-        document.getElementById('profile-surname').textContent = user.surname;
+
+        document.getElementById('profile-name').textContent = "Azamat";
+        document.getElementById('profile-surname').textContent = "Sailaubek";
         document.getElementById('profile-email').textContent = user.email;
-        document.getElementById('profile-password').textContent = user.password; 
+        document.getElementById('profile-password').textContent = "aza061005";
     }
 
     document.getElementById('logout-button').addEventListener('click', function() {
@@ -15,4 +16,3 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = "Login.html";
     });
 });
- 
