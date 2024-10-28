@@ -73,3 +73,11 @@ footer img {
     text-decoration: none; 
     color: inherit;
 }
+
+.row-sales {
+    display: flex;            
+    flex-wrap: wrap;          
+    margin-right: -15px;      
+    margin-left: -15px;
+    box-sizing: border-box;   
+}
