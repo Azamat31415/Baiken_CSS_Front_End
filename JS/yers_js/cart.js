@@ -57,6 +57,9 @@ if (cartStorageSales.length) {
     });
 }
 
+// Counting the total number of cards
+const totalItems = cartStorage.length + cartStorageSales.length;
+
 // We display a message if both baskets are empty
 if (isEmpty) {
     const emptyMessage = document.createElement("p");
@@ -70,6 +73,11 @@ if (isEmpty) {
     searchButton.innerText = "Search"; 
     cartSide.appendChild(searchButton); 
 } else {
+    const itemCountMessage = document.createElement("p");
+    itemCountMessage.className = "text-center my-5";
+    itemCountMessage.innerText = `You have ${totalItems} item(s) in your cart.`; 
+    cartSide.appendChild(itemCountMessage);
+
     const clearCartButton = document.createElement("button");
     clearCartButton.id = "clear-cart";
     clearCartButton.className = "btn btn-danger my-3";
