@@ -81,3 +81,12 @@ footer img {
     margin-left: -15px;
     box-sizing: border-box;   
 }
+
+#row-count {
+    font-size: 24px; 
+}
+
+.h2sl{
+    position: relative;
+    text-align: center;
+}

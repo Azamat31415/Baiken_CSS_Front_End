@@ -69,3 +69,11 @@ function addToCart(button) {
         }, 500); 
     });
 }
+
+// Counting the number of cards
+const cardElements = document.querySelectorAll('.card'); 
+const cardCount = cardElements.length; 
+
+// We find an element to display the number of cards
+const cardCountDisplay = document.getElementById('card-count');
+cardCountDisplay.innerText = `Total number of new buildings: ${cardCount}`; 

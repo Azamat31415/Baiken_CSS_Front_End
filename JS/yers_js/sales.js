@@ -37,3 +37,11 @@ cards.forEach((el, idx) => {
         updateButtonState(btn); // We update the text and style of the button after adding it
     });
 });
+
+// Counting the number of cards
+const rowElements = document.querySelectorAll('.row'); 
+const rowCount = rowElements.length; 
+
+// We find an element to display the number of cards
+const rowCountDisplay = document.getElementById('row-count');
+rowCountDisplay.innerText = `Total number of ads: ${rowCount}`; 
