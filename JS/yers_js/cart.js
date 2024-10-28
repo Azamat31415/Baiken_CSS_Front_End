@@ -1,3 +1,5 @@
+let isEmpty = true;
+
 const cartSide = document.querySelector(".row.mt-4");
 
 const cartStorage = JSON.parse(localStorage.getItem("cart") || "[]")
@@ -23,6 +25,7 @@ if (cartStorage.length) {
             </div>
         `;
         cartSide.appendChild(newCard)
+        isEmpty = false;
     });
 }
 
@@ -50,19 +53,37 @@ if (cartStorageSales.length) {
             </div>
         `;
         cartSideSales.appendChild(newCardSales)
+        isEmpty = false;
     });
 }
 
+// We display a message if both baskets are empty
+if (isEmpty) {
+    const emptyMessage = document.createElement("p");
+    emptyMessage.className = "text-center text-muted my-5";
+    emptyMessage.innerText = "Your cart is empty. Tap search to find some housing.";
+    cartSide.appendChild(emptyMessage);
+    
+    const searchButton = document.createElement("a");
+    searchButton.href = "Sales.html"; 
+    searchButton.className = "mt-3 btn btn-primary btn-lg";
+    searchButton.innerText = "Search"; 
+    cartSide.appendChild(searchButton); 
+} else {
+    const clearCartButton = document.createElement("button");
+    clearCartButton.id = "clear-cart";
+    clearCartButton.className = "btn btn-danger my-3";
+    clearCartButton.textContent = "Clear All Items";
+    clearCartButton.addEventListener("click", clearAllItems);
 
+    cartSide.appendChild(clearCartButton);
+}
 
-// else {
-//     const emptyMessage = document.createElement("p");
-//     emptyMessage.textContent = "Your cart is empty. Tap search to select some housing.";
-//     emptyMessage.className = "text-center"; 
-//     cartSide.appendChild(emptyMessage);
-// }
-
-
+function clearAllItems() {
+    localStorage.removeItem("cart"); 
+    localStorage.removeItem("cartSales"); 
+    location.reload(); 
+}
 
 function removeFromCart(title) {
     const cartStorage = JSON.parse(localStorage.getItem("cart") || "[]");
