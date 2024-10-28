@@ -1,3 +1,31 @@
+const cards = document.querySelectorAll(".card")
+
+cards.forEach((el, idx) => {
+    console.dir(el)
+    const btnParent = el.childNodes[7]
+    const btn = btnParent.childNodes[1]
+    const titleParent = el.childNodes[3]
+    const title = titleParent.childNodes[3].innerText
+    const price = titleParent.childNodes[1].innerText
+    const img = el.childNodes[1]
+    const imgSrc = img.getAttribute('src');
+
+    btn.addEventListener("click", () =>{
+        const selectedApartments = Array.from(el.querySelectorAll('input[name="apartment"]:checked'))
+                                        .map(input => input.nextElementSibling.textContent);
+
+        if (selectedApartments.length === 0) {
+            alert("Select at least 1 apartment.");
+            return;
+        }
+        
+        const cartStorage = localStorage.getItem("cart") || "[]"
+        const cart = JSON.parse(cartStorage)
+        const card = { title, price, imgSrc, selectedApartments }
+        localStorage.setItem("cart", JSON.stringify([...cart, card]))
+    })
+})
+
 function flyToCart(button) {
     const card = button.closest('.card');
     const productImage = card.querySelector('.card-img-top');
@@ -41,25 +69,6 @@ function flyToCart(button) {
 }
 
 function addToCart(button) {
-    const card = button.closest('.card');
-    const imgSrc = card.querySelector('.card-img-top').getAttribute('src');
-    const title = card.querySelector('.card-title').innerText;
-    const address = card.querySelector('.card-text').innerText;
-    const phone = card.querySelector('strong').innerText;
-
-    // Создаем уникальный ключ для каждой квартиры, например, по номеру телефона
-    const key = `cartItem-${phone}`;
-
-    // Сохраняем данные квартиры по ключу
-    localStorage.setItem(`${key}-imgSrc`, imgSrc);
-    localStorage.setItem(`${key}-title`, title);
-    localStorage.setItem(`${key}-address`, address);
-    localStorage.setItem(`${key}-phone`, phone);
-
-    // Сохраняем выбранные опции
-    card.querySelectorAll('input[type="checkbox"]:checked').forEach((option, index) => {
-        localStorage.setItem(`${key}-option-${index}`, `${option.value}|${option.nextElementSibling.innerText}`);
-    });
 
     // Запускаем анимацию
     flyToCart(button);
