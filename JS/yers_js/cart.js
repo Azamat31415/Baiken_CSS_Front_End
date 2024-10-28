@@ -35,5 +35,5 @@ function removeFromCart(title) {
     const cartStorage = JSON.parse(localStorage.getItem("cart") || "[]");
     const updatedCart = cartStorage.filter(item => item.title !== title);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-    location.reload(); // Перезагружаем страницу, чтобы обновить корзину
+    location.reload(); // Reloading the page to update the shopping cart
 }
