@@ -106,3 +106,48 @@ function removeFromCartSales(title) {
     localStorage.setItem("cartSales", JSON.stringify(updatedCartSales));
     location.reload(); // Reloading the page to update the shopping cart
 }
+
+function showModal(content) {
+    // Creating an overlay to darken the background
+    const overlay = document.createElement("div");
+    overlay.style.position = "fixed";
+    overlay.style.top = 0;
+    overlay.style.left = 0;
+    overlay.style.width = "100%";
+    overlay.style.height = "100%";
+    overlay.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+    overlay.style.display = "flex";
+    overlay.style.alignItems = "center";
+    overlay.style.justifyContent = "center";
+    overlay.style.zIndex = "1000";
+
+    // Creating the modal window itself
+    const modal = document.createElement("div");
+    modal.style.width = "70%"; // Window width
+    modal.style.height = "70%"; // Window height
+    modal.style.maxWidth = "800px";
+    modal.style.padding = "40px";
+    modal.style.backgroundColor = "white";
+    modal.style.borderRadius = "8px";
+    modal.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
+    modal.style.overflowY = "auto";
+    modal.innerHTML = `<p>${content}</p><button id="closeModal">Close</button>`;
+
+    // Adding a modal window to the overlay
+    overlay.appendChild(modal);
+
+    // Adding an overlay to the body
+    document.body.appendChild(overlay);
+
+    // Closing a modal window with a button
+    document.getElementById("closeModal").onclick = () => {
+        document.body.removeChild(overlay);
+    };
+}
+
+document.querySelectorAll(".btn-success").forEach(button => {
+    button.addEventListener("click", (event) => {
+        event.preventDefault();
+        showModal("Your custom message here.");
+    });
+});
