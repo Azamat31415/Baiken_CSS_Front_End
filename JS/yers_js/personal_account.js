@@ -48,6 +48,15 @@ document.addEventListener('DOMContentLoaded', function() {
     function removeAd(location) {
         ads = ads.filter(ad => ad.location !== location);
         localStorage.setItem('personalAccountAds', JSON.stringify(ads));
+    
+        let salesAds = JSON.parse(localStorage.getItem('salesAds')) || [];
+        salesAds = salesAds.filter(ad => ad.location !== location);
+        localStorage.setItem('salesAds', JSON.stringify(salesAds));
+    
+        let leaseAds = JSON.parse(localStorage.getItem('leaseAds')) || [];
+        leaseAds = leaseAds.filter(ad => ad.location !== location);
+        localStorage.setItem('leaseAds', JSON.stringify(leaseAds));
+    
         displayAds();
     }
 
