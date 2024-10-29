@@ -5,10 +5,10 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         const user = JSON.parse(currentUser);
 
-        document.getElementById('profile-name').textContent = "Azamat";
-        document.getElementById('profile-surname').textContent = "Sailaubek";
+        document.getElementById('profile-name').textContent = user.name || "Azamat";
+        document.getElementById('profile-surname').textContent = user.surname || "Sailaubek";
         document.getElementById('profile-email').textContent = user.email;
-        document.getElementById('profile-password').textContent = "aza061005";
+        document.getElementById('profile-password').textContent = user.password || "aza061005";
     }
 
     document.getElementById('logout-button').addEventListener('click', function() {
