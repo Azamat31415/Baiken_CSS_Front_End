@@ -3,23 +3,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const adsCountElement = document.getElementById('ads-count');
     let ads = JSON.parse(localStorage.getItem('personalAccountAds')) || [];
 
-    // Функция для отображения всех объявлений
     function displayAds() {
-        adsCountElement.innerText = `Number of Ads: ${ads.length}`; // Обновляем количество
+        adsCountElement.innerText = `Number of Ads: ${ads.length}`;
 
-        // Очищаем контейнер
         cartContainer.innerHTML = ''; 
 
         if (ads.length === 0) {
             cartContainer.innerHTML = '<p class="personal-account-text">You don\'t have any ads on your site yet</p>';
         } else {
             ads.forEach(ad => {
-                createAdCard(ad); // Теперь передача функции не нужна
+                createAdCard(ad);
             });
         }
     }
 
-    // Функция для создания карточки объявления
     function createAdCard(ad) {
         const newCard = document.createElement('div');
         newCard.classList.add('col-md-4', 'mb-4');
@@ -40,7 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         `;
 
-        // Добавляем обработчик события для удаления
         newCard.querySelector('.remove-ad-btn').addEventListener('click', function(event) {
             event.preventDefault();
             removeAd(ad.location);
@@ -49,13 +45,11 @@ document.addEventListener('DOMContentLoaded', function() {
         cartContainer.appendChild(newCard);
     }
 
-    // Функция для удаления объявления
     function removeAd(location) {
         ads = ads.filter(ad => ad.location !== location);
         localStorage.setItem('personalAccountAds', JSON.stringify(ads));
-        displayAds(); // Обновляем отображение без перезагрузки страницы
+        displayAds();
     }
 
-    // Инициализация
     displayAds();
 });
