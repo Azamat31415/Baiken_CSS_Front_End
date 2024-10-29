@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const cartContainer = document.getElementById('ads-container');
     const adsCountElement = document.getElementById('ads-count');
-    let ads = JSON.parse(localStorage.getItem('personalAccountAds')) || [];
+    const ads = JSON.parse(localStorage.getItem('personalAccountAds')) || [];
 
     function displayAds() {
         adsCountElement.innerText = `Number of Ads: ${ads.length}`;
@@ -12,12 +12,13 @@ document.addEventListener('DOMContentLoaded', function() {
             cartContainer.innerHTML = '<p class="personal-account-text">You don\'t have any ads on your site yet</p>';
         } else {
             ads.forEach(ad => {
-                createAdCard(ad);
+                createAdCard(ad, 'removeAd'); // Передаем имя функции для удаления
             });
         }
     }
 
-    function createAdCard(ad) {
+    // Функция для создания карточки объявления
+    function createAdCard(ad, removeCallback) {
         const newCard = document.createElement('div');
         newCard.classList.add('col-md-4', 'mb-4');
         newCard.innerHTML = `
@@ -32,33 +33,22 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p><strong>Additional:</strong> ${ad.additional}</p>
                 </div>
                 <div class="mt-auto">
-                    <a href="#" class="mb-2 btn btn-danger remove-ad-btn">Remove</a>
+                    <a href="#" class="mb-2 btn btn-danger" onclick="${removeCallback}('${ad.location}')">Remove</a>
                 </div>
             </div>
         `;
-
-        newCard.querySelector('.remove-ad-btn').addEventListener('click', function(event) {
-            event.preventDefault();
-            removeAd(ad.location);
-        });
-
         cartContainer.appendChild(newCard);
     }
 
-    function removeAd(location) {
-        ads = ads.filter(ad => ad.location !== location);
-        localStorage.setItem('personalAccountAds', JSON.stringify(ads));
-    
-        let salesAds = JSON.parse(localStorage.getItem('salesAds')) || [];
-        salesAds = salesAds.filter(ad => ad.location !== location);
-        localStorage.setItem('salesAds', JSON.stringify(salesAds));
-    
-        let leaseAds = JSON.parse(localStorage.getItem('leaseAds')) || [];
-        leaseAds = leaseAds.filter(ad => ad.location !== location);
-        localStorage.setItem('leaseAds', JSON.stringify(leaseAds));
-    
-        displayAds();
-    }
-
+    // Инициализация
     displayAds();
 });
+
+// Функция для удаления объявления
+function removeAd(location) {
+    let ads = JSON.parse(localStorage.getItem('personalAccountAds')) || [];
+    // Фильтруем объявления, удаляя только те, которые соответствуют указанному местоположению
+    ads = ads.filter(ad => ad.location !== location);
+    localStorage.setItem('personalAccountAds', JSON.stringify(ads));
+    location.reload(); // Перезагружаем страницу, чтобы обновить отображение
+}
