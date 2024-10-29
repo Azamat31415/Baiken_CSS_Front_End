@@ -1,82 +1,58 @@
 let isEmpty = true;
 
-const cartSide = document.querySelector(".row.mt-4");
+const cartContainer = document.querySelector(".row.mt-4");
 
-const cartStorage = JSON.parse(localStorage.getItem("cart") || "[]")
+const cartStorage = JSON.parse(localStorage.getItem("cart") || "[]");
+const cartStorageSales = JSON.parse(localStorage.getItem("cartSales") || "[]");
+const cartStorageLease = JSON.parse(localStorage.getItem("cartLease") || "[]");
 
-if (cartStorage.length) {
-    cartStorage.forEach(el => {
-        const {title, price, imgSrc, selectedApartments } = el
-
-        const newCard = document.createElement("div")
-        newCard.className = "col-md-4";
-        newCard.innerHTML = `
-            <div class="card h-100 d-flex flex-column">
-                <img src="${imgSrc}" class="card-img-top" alt="Card image">
-                <div class="card-body d-flex flex-grow-1 flex-column">
-                    <h5 class="card-title">${title}</h5>
-                    <p class="card-text">${price}</p><hr>
-                    <p>${selectedApartments.join('<br>')}</p><hr>
-                </div>
-                <div class="mt-auto">
-                    <a href="#" class="mb-2 btn btn-danger" onclick="removeFromCart('${title}')">Remove</a>
-                    <a href="#" class="mb-2 btn btn-success">Some</a>
-                </div>
+function createCartCard({ title, location, price, imgSrc, rooms, area, additional }, removeCallback) {
+    const newCard = document.createElement("div");
+    newCard.className = "col-md-4";
+    newCard.innerHTML = `
+        <div class="card h-100 d-flex flex-column">
+            <img src="${imgSrc || 'default_image.jpg'}" class="card-img-top" alt="Card image">
+            <div class="card-body d-flex flex-grow-1 flex-column">
+                <h5 class="card-title">${location}</h5>
+                <p><strong>Category:</strong> ${title}</p>
+                <p class="card-text"><strong>Price:</strong> ${price}</p>
+                <p><strong>Number of rooms:</strong> ${rooms}</p>
+                <p><strong>Area:</strong> ${area}</p>
+                <p><strong>Additional:</strong> ${additional}</p>
             </div>
-        `;
-        cartSide.appendChild(newCard)
-        isEmpty = false;
-    });
+            <div class="mt-auto">
+                <a href="#" class="mb-2 btn btn-danger" onclick="${removeCallback}('${title}')">Remove</a>
+                <a href="#" class="mb-2 btn btn-success">Some</a>
+            </div>
+        </div>
+    `;
+    cartContainer.appendChild(newCard);
 }
 
-const cartSideSales = document.querySelector(".row.mt-4");
-
-const cartStorageSales = JSON.parse(localStorage.getItem("cartSales") || "[]")
-
-if (cartStorageSales.length) {
-    cartStorageSales.forEach(el => {
-        const {title, price, imgSrc } = el
-
-        const newCardSales = document.createElement("div")
-        newCardSales.className = "col-md-4";
-        newCardSales.innerHTML = `
-            <div class="card h-100 d-flex flex-column">
-                <img src="${imgSrc}" class="card-img-top" alt="Card image">
-                <div class="card-body d-flex flex-grow-1 flex-column">
-                    <h5 class="card-title">${title}</h5><hr>
-                    <p class="card-text">${price}</p>
-                </div>
-                <div class="mt-auto">
-                    <a href="#" class="mb-2 btn btn-danger" onclick="removeFromCartSales('${title}')">Remove</a>
-                    <a href="#" class="mb-2 btn btn-success">Some</a>
-                </div>
-            </div>
-        `;
-        cartSideSales.appendChild(newCardSales)
-        isEmpty = false;
-    });
+if (cartStorage.length || cartStorageSales.length || cartStorageLease.length) {
+    cartStorage.forEach(ad => createCartCard(ad, 'removeFromCart'));
+    cartStorageSales.forEach(ad => createCartCard(ad, 'removeFromCartSales'));
+    cartStorageLease.forEach(ad => createCartCard(ad, 'removeFromCartLease'));
+    isEmpty = false;
 }
 
-// Counting the total number of cards
-const totalItems = cartStorage.length + cartStorageSales.length;
-
-// We display a message if both baskets are empty
 if (isEmpty) {
     const emptyMessage = document.createElement("p");
     emptyMessage.className = "text-center text-muted my-5";
     emptyMessage.innerText = "Your cart is empty. Tap search to find some housing.";
-    cartSide.appendChild(emptyMessage);
+    cartContainer.appendChild(emptyMessage);
     
     const searchButton = document.createElement("a");
     searchButton.href = "Sales.html"; 
     searchButton.className = "mt-3 btn btn-primary btn-lg";
     searchButton.innerText = "Search"; 
-    cartSide.appendChild(searchButton); 
+    cartContainer.appendChild(searchButton); 
 } else {
+    const totalItems = cartStorage.length + cartStorageSales.length + cartStorageLease.length;
     const itemCountMessage = document.createElement("p");
     itemCountMessage.className = "text-center my-5";
     itemCountMessage.innerText = `You have ${totalItems} item(s) in your cart.`; 
-    cartSide.appendChild(itemCountMessage);
+    cartContainer.appendChild(itemCountMessage);
 
     const clearCartButton = document.createElement("button");
     clearCartButton.id = "clear-cart";
@@ -84,31 +60,35 @@ if (isEmpty) {
     clearCartButton.textContent = "Clear All Items";
     clearCartButton.addEventListener("click", clearAllItems);
 
-    cartSide.appendChild(clearCartButton);
+    cartContainer.appendChild(clearCartButton);
 }
 
 function clearAllItems() {
     localStorage.removeItem("cart"); 
     localStorage.removeItem("cartSales"); 
+    localStorage.removeItem("cartLease"); 
     location.reload(); 
 }
 
 function removeFromCart(title) {
-    const cartStorage = JSON.parse(localStorage.getItem("cart") || "[]");
     const updatedCart = cartStorage.filter(item => item.title !== title);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-    location.reload(); // Reloading the page to update the shopping cart
+    location.reload();
 }
 
 function removeFromCartSales(title) {
-    const cartStorageSales = JSON.parse(localStorage.getItem("cartSales") || "[]");
     const updatedCartSales = cartStorageSales.filter(item => item.title !== title);
     localStorage.setItem("cartSales", JSON.stringify(updatedCartSales));
-    location.reload(); // Reloading the page to update the shopping cart
+    location.reload();
+}
+
+function removeFromCartLease(title) {
+    const updatedCartLease = cartStorageLease.filter(item => item.title !== title);
+    localStorage.setItem("cartLease", JSON.stringify(updatedCartLease));
+    location.reload();
 }
 
 function showModal(content) {
-    // Creating an overlay to darken the background
     const overlay = document.createElement("div");
     overlay.style.position = "fixed";
     overlay.style.top = 0;
@@ -121,10 +101,9 @@ function showModal(content) {
     overlay.style.justifyContent = "center";
     overlay.style.zIndex = "1000";
 
-    // Creating the modal window itself
     const modal = document.createElement("div");
-    modal.style.width = "70%"; // Window width
-    modal.style.height = "70%"; // Window height
+    modal.style.width = "70%";
+    modal.style.height = "70%";
     modal.style.maxWidth = "800px";
     modal.style.padding = "40px";
     modal.style.backgroundColor = "white";
@@ -133,13 +112,9 @@ function showModal(content) {
     modal.style.overflowY = "auto";
     modal.innerHTML = `<p>${content}</p><button id="closeModal">Close</button>`;
 
-    // Adding a modal window to the overlay
     overlay.appendChild(modal);
-
-    // Adding an overlay to the body
     document.body.appendChild(overlay);
 
-    // Closing a modal window with a button
     document.getElementById("closeModal").onclick = () => {
         document.body.removeChild(overlay);
     };

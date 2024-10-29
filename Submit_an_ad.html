@@ -86,6 +86,12 @@
                         </select>
                     </div>
 
+                    <!-- Floating label for location -->
+                    <div class="form-floating mb-3">
+                        <textarea id="location" name="location" rows="1" cols="10" class="form-control" placeholder="Location"></textarea>
+                        <label for="location">Location</label>
+                    </div>
+
                     <!-- Input group for price -->
                     <div class="input-group mb-3">
                         <span class="input-group-text">$</span>
@@ -149,11 +155,7 @@
         </div>
     </footer>
 
-    <script>
-        document.getElementById('submit-btn').addEventListener('click', function(event) {
-            alert("Submition successful!");
-        });
-    </script>
+    <script src="./JS/merey_js/Submit_an_ad.js"></script>    
 
 </body>
 </html>
