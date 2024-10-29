@@ -1,24 +1,26 @@
 document.addEventListener('DOMContentLoaded', function() {
     const cartContainer = document.getElementById('ads-container');
     const adsCountElement = document.getElementById('ads-count');
-    const ads = JSON.parse(localStorage.getItem('personalAccountAds')) || [];
+    let ads = JSON.parse(localStorage.getItem('personalAccountAds')) || [];
 
+    // Функция для отображения всех объявлений
     function displayAds() {
-        adsCountElement.innerText = `Number of Ads: ${ads.length}`;
+        adsCountElement.innerText = `Number of Ads: ${ads.length}`; // Обновляем количество
 
+        // Очищаем контейнер
         cartContainer.innerHTML = ''; 
 
         if (ads.length === 0) {
             cartContainer.innerHTML = '<p class="personal-account-text">You don\'t have any ads on your site yet</p>';
         } else {
             ads.forEach(ad => {
-                createAdCard(ad, 'removeAd'); // Передаем имя функции для удаления
+                createAdCard(ad); // Теперь передача функции не нужна
             });
         }
     }
 
     // Функция для создания карточки объявления
-    function createAdCard(ad, removeCallback) {
+    function createAdCard(ad) {
         const newCard = document.createElement('div');
         newCard.classList.add('col-md-4', 'mb-4');
         newCard.innerHTML = `
@@ -33,22 +35,27 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p><strong>Additional:</strong> ${ad.additional}</p>
                 </div>
                 <div class="mt-auto">
-                    <a href="#" class="mb-2 btn btn-danger" onclick="${removeCallback}('${ad.location}')">Remove</a>
+                    <a href="#" class="mb-2 btn btn-danger remove-ad-btn">Remove</a>
                 </div>
             </div>
         `;
+
+        // Добавляем обработчик события для удаления
+        newCard.querySelector('.remove-ad-btn').addEventListener('click', function(event) {
+            event.preventDefault();
+            removeAd(ad.location);
+        });
+
         cartContainer.appendChild(newCard);
+    }
+
+    // Функция для удаления объявления
+    function removeAd(location) {
+        ads = ads.filter(ad => ad.location !== location);
+        localStorage.setItem('personalAccountAds', JSON.stringify(ads));
+        displayAds(); // Обновляем отображение без перезагрузки страницы
     }
 
     // Инициализация
     displayAds();
 });
-
-// Функция для удаления объявления
-function removeAd(location) {
-    let ads = JSON.parse(localStorage.getItem('personalAccountAds')) || [];
-    // Фильтруем объявления, удаляя только те, которые соответствуют указанному местоположению
-    ads = ads.filter(ad => ad.location !== location);
-    localStorage.setItem('personalAccountAds', JSON.stringify(ads));
-    location.reload(); // Перезагружаем страницу, чтобы обновить отображение
-}
