@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
 
             const button = adCard.querySelector('.add-to-cart-btn');
-            const isInCart = cartLease.some(item => item.title === `${ad.category} - ${ad.property}`);
+            const isInCart = cartLease.some(item => item.location === `${ad.category} - ${ad.property}`);
 
             if (isInCart) {
                 updateButtonState(button);
