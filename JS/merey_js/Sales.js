@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function addToCart(button) {
         const card = button.closest('.card');
-        const productImage = card.querySelector('img'); // Исправлено на 'img'
+        const productImage = card.querySelector('img');
         const productRect = productImage.getBoundingClientRect();
         const cartRect = cartIcon.getBoundingClientRect();
 
