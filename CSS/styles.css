@@ -351,3 +351,87 @@ input.error {
 .custom-alert-content button:hover {
     background-color: #0056b3;
 }
+
+/* Adding a picture */
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.custom-file-upload input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload label {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 20px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    width: 200px;
+}
+
+.image-preview img {
+    max-width: 400px;
+    max-height: 400px; 
+    width: auto;
+    height: auto;
+    margin-top: 10px;
+    display: block;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Design of ads in sales */
+.card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    transition: transform 0.2s;
+    display: flex;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    object-fit: cover;
+}
+
+.col-md-4 {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body {
+    padding: 16px;
+    flex: 1;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.card-text {
+    margin-bottom: 10px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}

@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function addToCart(button) {
         const card = button.closest('.card');
-        const productImage = card.querySelector('.card-img-top');
+        const productImage = card.querySelector('img');
         const cartIcon = document.getElementById("cart-icon");
 
         const productRect = productImage.getBoundingClientRect();
@@ -49,16 +49,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
     ads.forEach(ad => {
         const adCard = document.createElement('div');
-        adCard.className = 'card mb-4';
+        adCard.className = 'card mb-4 shadow-sm';
         adCard.innerHTML = `
-            <div class="card-body">
-                <h5 class="card-title">${ad.category} - ${ad.property}</h5>
-                <p class="card-text"><strong>Location:</strong> ${ad.location}</p>
-                <p class="card-text"><strong>Price:</strong> $${ad.price}</p>
-                <p class="card-text"><strong>Number of Rooms:</strong> ${ad.rooms}</p>
-                <p class="card-text"><strong>Area:</strong> ${ad.area} sq. meters</p>
-                <p class="card-text"><strong>Additional:</strong> ${ad.additional}</p>
-                <button class="btn btn-primary add-to-cart-btn">Add to Cart</button>
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="${ad.image || 'default_image.jpg'}" class="img-fluid rounded-start" alt="Card image" style="height: 271px; object-fit: cover;">
+                </div>
+                <div class="col-md-4">
+                    <div class="card-body">
+                        <h5 class="card-title">${ad.category} - ${ad.property}</h5>
+                        <p class="card-text"><strong>Location:</strong> ${ad.location}</p>
+                        <p class="card-text"><strong>Price:</strong> $${ad.price}</p>
+                        <p class="card-text"><strong>Number of Rooms:</strong> ${ad.rooms}</p>
+                        <p class="card-text"><strong>Area:</strong> ${ad.area} sq. meters</p>
+                        <br><button class="btn btn-primary add-to-cart-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card-body">
+                        <p class="card-text"><strong>Additional:</strong> ${ad.additional}</p>
+                    </div>
+                </div>
             </div>
         `;
 
@@ -70,6 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         button.addEventListener('click', () => {
+            console.log('Button clicked');
             const cartStorageLease = JSON.parse(localStorage.getItem("cartLease") || "[]");
             const cardLease = { 
                 title: `${ad.category} - ${ad.property}`, 
@@ -80,11 +92,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 additional: ad.additional,
                 imgSrc: ad.imgSrc
             };
-
+        
             localStorage.setItem("cartLease", JSON.stringify([...cartStorageLease, cardLease]));
+            console.log('Card added to cart');
             updateButtonState(button);
             addToCart(button);
-        });
+        });        
 
         adsContainer.appendChild(adCard);
     });

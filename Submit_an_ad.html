@@ -57,12 +57,15 @@
         <h2>Submit an Ad</h2>
 
         <!-- Card for image -->
-        <div class="card mb-4">
-            <div class="card-body text-center">
-                <img src="https://ioscookbook.files.wordpress.com/2018/04/images-icon.jpg" alt="Picture of House" class="ad-image">
-                <p><a class="btn btn-primary mt-3">Add Picture</a></p>
+        <div class="upload-container text-center">
+            <div class="image-preview">
+                <img id="preview-image" src="" alt="Picture" style="display: none;">
             </div>
-        </div>
+            <div class="custom-file-upload">
+                <input type="file" id="image-upload" accept="image/*">
+                <label for="image-upload" id="file-label">Upload an image</label>
+            </div>
+        </div>                                    
 
         <!-- Card for form -->
         <div class="card">
