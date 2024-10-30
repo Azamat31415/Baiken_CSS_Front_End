@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
         adCard.innerHTML = `
             <div class="row g-0">
                 <div class="col-md-4">
-                    <img src="${ad.image || 'default_image.jpg'}" class="img-fluid rounded-start" alt="Card image" style="height: 271px; object-fit: cover;">
+                    <img src="${ad.image || './Assets/photo_2024-08-01_20-08-19.jpg'}" class="img-fluid rounded-start" alt="Card image" style="height: 271px; object-fit: cover;">
                 </div>
                 <div class="col-md-4">
                     <div class="card-body">
@@ -87,9 +87,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 rooms: ad.rooms, 
                 area: ad.area, 
                 additional: ad.additional,
-                imgSrc: ad.imgSrc
+                imgSrc: ad.image 
             };
-
+        
             localStorage.setItem("cartSales", JSON.stringify([...cartStorageSales, cardSales]));
             updateButtonState(button);
             addToCart(button);
@@ -100,3 +100,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     rowCount.innerText = `Total properties found: ${ads.length}`;
 });
+
+// Function for updating the button status
+function updateButtonState(button) {
+    button.innerText = "Already in cart";
+    button.classList.remove("btn-primary");
+    button.classList.add("btn-secondary");
+    button.disabled = true;
+}

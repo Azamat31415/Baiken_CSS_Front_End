@@ -45,10 +45,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }    
 
     function removeAd(location) {
+        // Удаление объявления из персонального аккаунта
         ads = ads.filter(ad => ad.location !== location);
         localStorage.setItem('personalAccountAds', JSON.stringify(ads));
+    
+        // Удаление объявления из salesAds
+        let salesAds = JSON.parse(localStorage.getItem('salesAds')) || [];
+        salesAds = salesAds.filter(ad => ad.location !== location);
+        localStorage.setItem('salesAds', JSON.stringify(salesAds));
+    
+        // Обновляем отображение объявлений
         displayAds();
     }
+    
 
     displayAds();
 });

@@ -11,7 +11,7 @@ function createCartCard({ title, location, price, imgSrc, rooms, area, additiona
     newCard.className = "col-md-4";
     newCard.innerHTML = `
         <div class="card h-100 d-flex flex-column">
-            <img src="${imgSrc || 'default_image.jpg'}" class="card-img-top" alt="Card image">
+            <img src="${imgSrc || './Assets/photo_2024-08-01_20-08-19.jpg'}" class="card-img-top" alt="Card image">
             <div class="card-body d-flex flex-grow-1 flex-column">
                 <h5 class="card-title">${location}</h5>
                 <p><strong>Category:</strong> ${title}</p>
