@@ -85,19 +85,21 @@
                 </div>
     
                 <div class="filter-group">
-                    <p>Type:</p>
-                    <label for="apartments"><input type="checkbox" id="apartments">Apartments</label>
-                    <label for="cottages"><input type="checkbox" id="cottages">Cottages</label>
-                    <label for="garrages"><input type="checkbox" id="garrages">Garrages </label>
-                    <label for="commercials"><input type="checkbox" id="commercials">Commercials</label>
-                </div>
+                    <label for="property-type">Type:</label>
+                    <select id="property-type">
+                        <option value="">All Types</option>
+                        <option value="Bare-shell">Bare-Shell Apartments</option>
+                        <option value="Turnkey">Turnkey Apartments</option>
+                        <option value="Cottage">Cottages</option>
+                    </select>
+                </div>                
     
                 <button type="submit" class="filter-button">Show result</button>
             </form>
         </div>
 
         <div class="container my-5">
-            <h2 class="h2sl">Apartments, Cottages, Garrages or parkings and Commercials for sale in Astana</h2>
+            <h2 class="h2sl">Apartments and Cottages for sale in Astana</h2>
             <div id="row-count" class="text-center my-4"></div><hr>
             <h2>Available Properties</h2>
             <div id="ads-container"></div>
