@@ -28,7 +28,7 @@ document.getElementById('submit-btn').addEventListener('click', function(event) 
         };
         reader.readAsDataURL(imageInput.files[0]);
     } else {
-        alert("Please upload an image!");
+        showCustomAlert("Please, upload an image!");
     }
 });
 
@@ -42,9 +42,10 @@ function saveAd(ad) {
     personalAccountAds.push({ ...ad, inCart: false });
     localStorage.setItem('personalAccountAds', JSON.stringify(personalAccountAds));
 
-    alert("Submission successful!");
-    document.querySelector('form').reset();
-    document.getElementById('preview-image').src = "https://ioscookbook.files.wordpress.com/2018/04/images-icon.jpg";
+    showCustomAlert("Submission successful!", () => {
+        document.querySelector('form').reset();
+        document.getElementById('preview-image').src = "https://ioscookbook.files.wordpress.com/2018/04/images-icon.jpg";
+    });
 }
 
 document.getElementById('image-upload').addEventListener('change', function() {
@@ -59,3 +60,19 @@ document.getElementById('image-upload').addEventListener('change', function() {
         reader.readAsDataURL(file);
     }
 });
+
+function showCustomAlert(message, callback) {
+    const alertBox = document.getElementById('custom-alert');
+    const alertMessage = document.getElementById('custom-alert-message');
+    alertMessage.textContent = message;
+    alertBox.style.display = 'flex';
+
+    alertBox.querySelector("button").onclick = function() {
+        closeCustomAlert();
+        if (callback) callback();
+    };
+}
+
+function closeCustomAlert() {
+    document.getElementById('custom-alert').style.display = 'none';
+}
