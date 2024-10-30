@@ -11,17 +11,17 @@ cards.forEach((el, idx) => {
     const imgSrc = img.getAttribute('src');
 
     btn.addEventListener("click", () =>{
-        const selectedApartments = Array.from(el.querySelectorAll('input[name="apartment"]:checked'))
+        const additional = Array.from(el.querySelectorAll('input[name="apartment"]:checked'))
                                         .map(input => input.nextElementSibling.textContent);
 
-        if (selectedApartments.length === 0) {
+        if (additional.length === 0) {
             alert("Select at least 1 apartment.");
             return;
         }
 
         const cartStorage = localStorage.getItem("cart") || "[]"
         const cart = JSON.parse(cartStorage)
-        const card = { title, price, imgSrc, selectedApartments }
+        const card = { title, price, imgSrc, additional }
         localStorage.setItem("cart", JSON.stringify([...cart, card]))
 
         addToCart(btn);

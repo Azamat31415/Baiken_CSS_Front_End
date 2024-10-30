@@ -63,8 +63,8 @@ document.addEventListener('DOMContentLoaded', function() {
             button.addEventListener('click', () => {
                 const cartStorageLease = JSON.parse(localStorage.getItem("cartLease") || "[]");
                 const cardLease = { 
-                    title: `${ad.category} - ${ad.property}`, 
-                    location: ad.location,
+                    title: ad.location,
+                    location: `${ad.category} - ${ad.property}`, 
                     price: `$${ad.price}`, 
                     rooms: ad.rooms, 
                     area: ad.area, 

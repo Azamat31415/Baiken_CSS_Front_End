@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
 
             const button = adCard.querySelector('.add-to-cart-btn');
-            const isInCart = cartSales.some(item => item.location === ad.location && item.title === `${ad.category} - ${ad.property}`);
+            const isInCart = cartSales.some(item => item.title === ad.location && item.location === `${ad.category} - ${ad.property}`);
             
             if (isInCart) {
                 updateButtonState(button);
@@ -64,8 +64,8 @@ document.addEventListener('DOMContentLoaded', function() {
             button.addEventListener('click', () => {
                 const cartStorageSales = JSON.parse(localStorage.getItem("cartSales") || "[]");
                 const cardSales = { 
-                    title: `${ad.category} - ${ad.property}`, 
-                    location: ad.location,
+                    title: ad.location,
+                    location: `${ad.category} - ${ad.property}`, 
                     price: `$${ad.price}`, 
                     rooms: ad.rooms, 
                     area: ad.area, 
