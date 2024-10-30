@@ -18,7 +18,6 @@ function createCartCard({ title, location, price, imgSrc, rooms, area, additiona
                 <p class="card-text"><strong>Price:</strong> ${price}</p>
                 <p><strong>Number of rooms:</strong> ${rooms}</p>
                 <p><strong>Area:</strong> ${area}</p>
-                <p><strong>Additional:</strong> ${additional}</p>
             </div>
             <div class="mt-auto">
                 <a href="#" class="mb-2 btn btn-danger" onclick="${removeCallback}('${title}')">Remove</a>
