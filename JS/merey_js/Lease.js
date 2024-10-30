@@ -2,6 +2,86 @@ document.addEventListener('DOMContentLoaded', function() {
     const ads = JSON.parse(localStorage.getItem('leaseAds')) || [];
     const adsContainer = document.getElementById('ads-container');
     const cartLease = JSON.parse(localStorage.getItem("cartLease") || "[]");
+    const rowCount = document.getElementById('row-count');
+
+    function filterAds() {
+        const priceFrom = parseFloat(document.getElementById('price-from').value) || 0;
+        const priceTo = parseFloat(document.getElementById('price-to').value) || Infinity;
+        const areaFrom = parseFloat(document.getElementById('arear-from').value) || 0;
+        const areaTo = parseFloat(document.getElementById('area-to').value) || Infinity;
+        const rooms = document.getElementById('rooms').value;
+        const propertyType = document.getElementById('property-type').value;
+
+        const filteredAds = ads.filter(ad => {
+            const price = parseFloat(ad.price);
+            const area = parseFloat(ad.area);
+            const matchesPrice = price >= priceFrom && price <= priceTo;
+            const matchesArea = area >= areaFrom && area <= areaTo;
+            const matchesRooms = rooms === "" || ad.rooms === rooms;
+            const matchesType = propertyType === "" || ad.property === propertyType;
+            return matchesPrice && matchesArea && matchesRooms && matchesType;
+        });
+
+        displayAds(filteredAds);
+    }
+
+    function displayAds(filteredAds) {
+        adsContainer.innerHTML = '';
+        filteredAds.forEach(ad => {
+            const adCard = document.createElement('div');
+            adCard.className = 'card mb-4 shadow-sm';
+            adCard.innerHTML = `
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="${ad.image || 'default_image.jpg'}" class="img-fluid rounded-start" alt="Card image" style="height: 271px; object-fit: cover;">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card-body">
+                            <h5 class="card-title">${ad.category} - ${ad.property}</h5>
+                            <p class="card-text"><strong>Location:</strong> ${ad.location}</p>
+                            <p class="card-text"><strong>Price:</strong> $${ad.price}</p>
+                            <p class="card-text"><strong>Number of Rooms:</strong> ${ad.rooms}</p>
+                            <p class="card-text"><strong>Area:</strong> ${ad.area} sq. meters</p>
+                            <br><button class="btn btn-primary add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card-body">
+                            <p class="card-text"><strong>Additional:</strong> ${ad.additional}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            const button = adCard.querySelector('.add-to-cart-btn');
+            const isInCart = cartLease.some(item => item.title === `${ad.category} - ${ad.property}`);
+
+            if (isInCart) {
+                updateButtonState(button);
+            }
+
+            button.addEventListener('click', () => {
+                const cartStorageLease = JSON.parse(localStorage.getItem("cartLease") || "[]");
+                const cardLease = { 
+                    title: `${ad.category} - ${ad.property}`, 
+                    location: ad.location,
+                    price: `$${ad.price}`, 
+                    rooms: ad.rooms, 
+                    area: ad.area, 
+                    additional: ad.additional,
+                    imgSrc: ad.image 
+                };
+                
+                localStorage.setItem("cartLease", JSON.stringify([...cartStorageLease, cardLease]));
+                updateButtonState(button);
+                addToCart(button);
+            });
+
+            adsContainer.appendChild(adCard);
+        });
+        
+        rowCount.innerText = `Total properties found: ${filteredAds.length}`;
+    }
 
     function updateButtonState(button) {
         button.innerText = "Already in cart";
@@ -47,58 +127,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    ads.forEach(ad => {
-        const adCard = document.createElement('div');
-        adCard.className = 'card mb-4 shadow-sm';
-        adCard.innerHTML = `
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="${ad.image || 'default_image.jpg'}" class="img-fluid rounded-start" alt="Card image" style="height: 271px; object-fit: cover;">
-                </div>
-                <div class="col-md-4">
-                    <div class="card-body">
-                        <h5 class="card-title">${ad.category} - ${ad.property}</h5>
-                        <p class="card-text"><strong>Location:</strong> ${ad.location}</p>
-                        <p class="card-text"><strong>Price:</strong> $${ad.price}</p>
-                        <p class="card-text"><strong>Number of Rooms:</strong> ${ad.rooms}</p>
-                        <p class="card-text"><strong>Area:</strong> ${ad.area} sq. meters</p>
-                        <br><button class="btn btn-primary add-to-cart-btn">Add to Cart</button>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card-body">
-                        <p class="card-text"><strong>Additional:</strong> ${ad.additional}</p>
-                    </div>
-                </div>
-            </div>
-        `;
-
-        const button = adCard.querySelector('.add-to-cart-btn');
-        const isInCart = cartLease.some(item => item.title === `${ad.category} - ${ad.property}`);
-
-        if (isInCart) {
-            updateButtonState(button);
-        }
-
-        button.addEventListener('click', () => {
-            console.log('Button clicked');
-            const cartStorageLease = JSON.parse(localStorage.getItem("cartLease") || "[]");
-            const cardLease = { 
-                title: `${ad.category} - ${ad.property}`, 
-                location: ad.location,
-                price: `$${ad.price}`, 
-                rooms: ad.rooms, 
-                area: ad.area, 
-                additional: ad.additional,
-                imgSrc: ad.imgSrc
-            };
-        
-            localStorage.setItem("cartLease", JSON.stringify([...cartStorageLease, cardLease]));
-            console.log('Card added to cart');
-            updateButtonState(button);
-            addToCart(button);
-        });        
-
-        adsContainer.appendChild(adCard);
+    document.querySelector('.filter-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        filterAds();
     });
+
+    displayAds(ads);
 });

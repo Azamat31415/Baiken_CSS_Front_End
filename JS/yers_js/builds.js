@@ -33,23 +33,20 @@ function addToCart(button) {
     const productImage = card.querySelector('.card-img-top');
     const cartIcon = document.getElementById("cart-icon");
 
-    // We get the initial and final coordinates
     const productRect = productImage.getBoundingClientRect();
     const cartRect = cartIcon.getBoundingClientRect();
 
-    // Creating a clone of the image
     const flyingImage = productImage.cloneNode(true);
     flyingImage.style.position = 'fixed';
     flyingImage.style.left = `${productRect.left}px`;
     flyingImage.style.top = `${productRect.top}px`;
     flyingImage.style.width = `${productRect.width}px`;
     flyingImage.style.height = `${productRect.height}px`;
-    flyingImage.style.zIndex = '1000'; // Setting a high z-index for the surface layer
+    flyingImage.style.zIndex = '1000';
     flyingImage.style.transition = 'all 1s ease-in-out';
-    flyingImage.style.borderRadius = '10%'; // Rounding the corners
+    flyingImage.style.borderRadius = '10%';
     document.body.appendChild(flyingImage);
 
-    // Starting the animation
     setTimeout(() => {
         flyingImage.style.left = `${cartRect.left}px`;
         flyingImage.style.top = `${cartRect.top}px`;
@@ -58,22 +55,18 @@ function addToCart(button) {
         flyingImage.style.opacity = '0.5';
     }, 10);
 
-    // We delete the clone and add the animation class to the trash
     flyingImage.addEventListener('transitionend', () => {
         flyingImage.remove();
         cartIcon.classList.add('animated');
 
-        // Deleting the animation class after its completion
         setTimeout(() => {
             cartIcon.classList.remove('animated');
         }, 500); 
     });
 }
 
-// Counting the number of cards
 const cardElements = document.querySelectorAll('.card'); 
 const cardCount = cardElements.length; 
 
-// We find an element to display the number of cards
 const cardCountDisplay = document.getElementById('card-count');
 cardCountDisplay.innerText = `Total number of new buildings: ${cardCount}`; 

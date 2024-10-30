@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const cartSales = JSON.parse(localStorage.getItem("cartSales") || "[]");
     const rowCount = document.getElementById('row-count');
 
-    // Функция фильтрации объявлений
     function filterAds() {
         const priceFrom = parseFloat(document.getElementById('price-from').value) || 0;
         const priceTo = parseFloat(document.getElementById('price-to').value) || Infinity;
@@ -27,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
         displayAds(filteredAds);
     }
 
-    // Функция отображения объявлений в контейнере
     function displayAds(filteredAds) {
         adsContainer.innerHTML = '';
         filteredAds.forEach(ad => {
@@ -75,10 +73,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     imgSrc: ad.image 
                 };
                 
-                // Добавление в корзину с анимацией
                 addToCart(button, ad.image);
 
-                // Обновление состояния кнопки
                 localStorage.setItem("cartSales", JSON.stringify([...cartStorageSales, cardSales]));
             });
 
@@ -88,7 +84,6 @@ document.addEventListener('DOMContentLoaded', function() {
         rowCount.innerText = `Total properties found: ${filteredAds.length}`;
     }
 
-    // Функция для добавления товара в корзину с анимацией
     function addToCart(button, imageSrc) {
         const productImage = button.closest('.card').querySelector('img');
         const productRect = productImage.getBoundingClientRect();
@@ -122,11 +117,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 500);
         });
 
-        // Обновление состояния кнопки
         updateButtonState(button);
     }
 
-    // Функция для обновления состояния кнопки
     function updateButtonState(button) {
         button.innerText = "Already in cart";
         button.classList.remove("btn-primary");
@@ -139,6 +132,5 @@ document.addEventListener('DOMContentLoaded', function() {
         filterAds();
     });
 
-    // Отображение всех объявлений изначально
     displayAds(ads);
 });

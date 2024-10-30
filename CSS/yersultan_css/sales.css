@@ -38,7 +38,7 @@ input[type="checkbox"] {
     margin-right: 5px;
 }
 
-.filter-button {
+.filter-button-sales {
     grid-column: span 2;
     padding: 10px;
     background-color:darkturquoise;
@@ -49,8 +49,24 @@ input[type="checkbox"] {
     text-align: center;
 }
 
-.filter-button:hover {
+.filter-button-sales:hover {
     background-color:darkcyan;
+}
+
+.filter-button-lease {
+    color: white;
+    grid-column: span 2;
+    padding: 10px;
+    background-color:rgb(105, 40, 255);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.filter-button-lease:hover {
+    background-color:rgb(42, 0, 141);
 }
 
 /* Footer */

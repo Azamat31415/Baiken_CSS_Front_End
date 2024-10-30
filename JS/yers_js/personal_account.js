@@ -45,31 +45,25 @@ document.addEventListener('DOMContentLoaded', function() {
     }    
 
     function removeAd(location) {
-        // Удаление объявления из персонального аккаунта
         ads = ads.filter(ad => ad.location !== location);
         localStorage.setItem('personalAccountAds', JSON.stringify(ads));
     
-        // Удаление объявления из salesAds
         let salesAds = JSON.parse(localStorage.getItem('salesAds')) || [];
         salesAds = salesAds.filter(ad => ad.location !== location);
         localStorage.setItem('salesAds', JSON.stringify(salesAds));
         
-        // Удаление объявления из leaseAds
         let leaseAds = JSON.parse(localStorage.getItem('leaseAds')) || [];
         leaseAds = leaseAds.filter(ad => ad.location !== location);
         localStorage.setItem('leaseAds', JSON.stringify(leaseAds));
     
-        // Удаление объявления из cartAds
-        let cartAds = JSON.parse(localStorage.getItem('cartAds')) || [];
-        cartAds = cartAds.filter(ad => ad.location !== location);
-        localStorage.setItem('cartAds', JSON.stringify(cartAds));
+        let cartLease = JSON.parse(localStorage.getItem('cartLease')) || [];
+        cartLease = cartLease.filter(ad => ad.location !== location);
+        localStorage.setItem('cartLease', JSON.stringify(cartLease));
     
-        // Удаление объявления из cartSales
         let cartSales = JSON.parse(localStorage.getItem('cartSales')) || [];
         cartSales = cartSales.filter(ad => ad.location !== location);
         localStorage.setItem('cartSales', JSON.stringify(cartSales));
     
-        // Обновляем отображение объявлений
         displayAds();
     }
     
