@@ -148,6 +148,7 @@ function showPrepaidModal({ title, location, price, rooms, area, imgSrc }) {
     document.getElementById("submitOrder").onclick = () => {
         alert("The prepayment has been made!");
         document.body.removeChild(overlay);
+        removeFromCartLease(title);
     };
 }
 
