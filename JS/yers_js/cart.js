@@ -87,7 +87,7 @@ function removeFromCartLease(title) {
     location.reload();
 }
 
-function showModal(content) {
+function showPrepaidModal({ title, location, price, rooms, area, imgSrc }) {
     const overlay = document.createElement("div");
     overlay.style.position = "fixed";
     overlay.style.top = 0;
@@ -101,15 +101,42 @@ function showModal(content) {
     overlay.style.zIndex = "1000";
 
     const modal = document.createElement("div");
-    modal.style.width = "70%";
-    modal.style.height = "70%";
-    modal.style.maxWidth = "800px";
-    modal.style.padding = "40px";
+    modal.style.width = "400px";
+    modal.style.padding = "20px";
     modal.style.backgroundColor = "white";
     modal.style.borderRadius = "8px";
     modal.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
-    modal.style.overflowY = "auto";
-    modal.innerHTML = `<p>${content}</p><button id="closeModal">Close</button>`;
+
+    modal.innerHTML = `
+        <h3>${location} - ${title}</h3>
+        <img src="${imgSrc || './Assets/photo_2024-08-01_20-08-19.jpg'}" alt="Product image" style="width: 100%; height: auto;">
+        <p><strong>Price:</strong> ${price}</p>
+        <p><strong>Number of rooms:</strong> ${rooms}</p>
+        <p><strong>Area:</strong> ${area}</p>
+
+        <form id="paymentForm">
+            <label>Card number:</label>
+            <input type="text" class="form-control mb-2" placeholder="XXXX XXXX XXXX XXXX" maxlength="19">
+
+            <label>Validity period:</label>
+            <input type="text" class="form-control mb-2" placeholder="MM/ГГ" maxlength="5">
+
+            <label>CVV:</label>
+            <input type="password" class="form-control mb-2" placeholder="•••" maxlength="3">
+
+            <label>Full name of the owner:</label>
+            <input type="text" class="form-control mb-2" placeholder="NAME SURNAME">
+
+            <label>Email:</label>
+            <input type="email" class="form-control mb-2" placeholder="example@gmail.com">
+
+            <label>Phone number:</label>
+            <input type="tel" class="form-control mb-2" placeholder="+7-777-777-7777">
+        </form>
+
+        <button type="button" id="submitOrder" class="btn btn-primary mt-2">Make an advance payment</button><br>
+        <button id="closeModal" class="btn btn-secondary mt-3">Close</button>
+    `;
 
     overlay.appendChild(modal);
     document.body.appendChild(overlay);
@@ -117,11 +144,31 @@ function showModal(content) {
     document.getElementById("closeModal").onclick = () => {
         document.body.removeChild(overlay);
     };
+
+    document.getElementById("submitOrder").onclick = () => {
+        alert("The prepayment has been made!");
+        document.body.removeChild(overlay);
+    };
 }
 
-document.querySelectorAll(".btn-success").forEach(button => {
-    button.addEventListener("click", (event) => {
-        event.preventDefault();
-        showModal("Your custom message here.");
-    });
-});
+function createCartCard({ title, location, price, imgSrc, rooms, area, additional }, removeCallback, isLease) {
+    const newCard = document.createElement("div");
+    newCard.className = "col-md-4";
+    newCard.innerHTML = `
+        <div class="card h-100 d-flex flex-column">
+            <img src="${imgSrc || './Assets/photo_2024-08-01_20-08-19.jpg'}" class="card-img-top" alt="Card image">
+            <div class="card-body d-flex flex-grow-1 flex-column">
+                <h5 class="card-title">${location}</h5>
+                <p><strong>Category:</strong> ${title}</p>
+                <p class="card-text"><strong>Price:</strong> ${price}</p>
+                <p><strong>Number of rooms:</strong> ${rooms}</p>
+                <p><strong>Area:</strong> ${area}</p>
+            </div>
+            <div class="mt-auto">
+                <a href="#" class="mb-2 btn btn-danger" onclick="${removeCallback}('${title}')">Remove</a>
+                ${isLease ? `<a href="#" class="mb-2 btn btn-success" onclick="showPrepaidModal({ title: '${title}', location: '${location}', price: '${price}', rooms: '${rooms}', area: '${area}', imgSrc: '${imgSrc}' })">Prepaid</a>` : ''}
+            </div>
+        </div>
+    `;
+    cartContainer.appendChild(newCard);
+}
