@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const adsContainer = document.getElementById('ads-container');
     const cartIcon = document.getElementById("cart-icon");
     const cartSales = JSON.parse(localStorage.getItem("cartSales") || "[]");
+    const rowCount = document.getElementById('row-count');
 
     function addToCart(button) {
         const card = button.closest('.card');
@@ -96,4 +97,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         adsContainer.appendChild(adCard);
     });    
+    
+    rowCount.innerText = `Total properties found: ${ads.length}`;
 });
