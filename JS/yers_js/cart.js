@@ -119,7 +119,7 @@ function showPrepaidModal({ title, location, price, rooms, area, imgSrc }) {
             <input type="text" class="form-control mb-2" placeholder="XXXX XXXX XXXX XXXX" maxlength="19">
 
             <label>Validity period:</label>
-            <input type="text" class="form-control mb-2" placeholder="MM/ГГ" maxlength="5">
+            <input type="text" class="form-control mb-2" placeholder="MM/YY" maxlength="5">
 
             <label>CVV:</label>
             <input type="password" class="form-control mb-2" placeholder="•••" maxlength="3">
