@@ -13,7 +13,8 @@ cards.forEach((el, idx) => {
     btn.addEventListener("click", () =>{
         const area = Array.from(el.querySelectorAll('input[name="apartment"]:checked'))
                                         .map(input => input.nextElementSibling.textContent);
-        const location = 'New buildings';
+        const location = 'New building';
+        const rooms = 'Some';
 
         if (area.length === 0) {
             alert("Select at least 1 apartment.");
@@ -22,7 +23,7 @@ cards.forEach((el, idx) => {
 
         const cartStorage = localStorage.getItem("cart") || "[]"
         const cart = JSON.parse(cartStorage)
-        const card = { title, location ,price, imgSrc, area }
+        const card = { title, location ,price, imgSrc, rooms, area }
         localStorage.setItem("cart", JSON.stringify([...cart, card]))
 
         addToCart(btn);
