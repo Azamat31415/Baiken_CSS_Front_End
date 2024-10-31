@@ -6,7 +6,7 @@ const cartStorage = JSON.parse(localStorage.getItem("cart") || "[]");
 const cartStorageSales = JSON.parse(localStorage.getItem("cartSales") || "[]");
 const cartStorageLease = JSON.parse(localStorage.getItem("cartLease") || "[]");
 
-function createCartCard({ title, location, price, imgSrc, rooms, area, additional }, removeCallback, isLease) {
+function createCartCard({ title, location, price, imgSrc, rooms, area }, removeCallback, isLease) {
     const newCard = document.createElement("div");
     newCard.className = "col-md-4";
     newCard.innerHTML = 
@@ -17,7 +17,7 @@ function createCartCard({ title, location, price, imgSrc, rooms, area, additiona
                 <p><strong>Location:</strong> ${title}</p>
                 <p class="card-text"><strong>Price:</strong> ${price}</p>
                 <p><strong>Number of rooms:</strong> ${rooms}</p>
-                <p><strong>Area:</strong> ${area || additional}</p>
+                <p><strong>Area:</strong> ${area}</p>
             </div>
             <div class="mt-auto">
                 <a href="#" class="mb-2 btn btn-danger" onclick="${removeCallback}('${title}')">Remove</a>
