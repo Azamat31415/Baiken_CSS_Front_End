@@ -5,6 +5,7 @@ document.getElementById('submit-btn').addEventListener('click', function(event) 
     const surname = document.getElementById('surname');
     const email = document.getElementById('email');
     const password = document.getElementById('password');
+    const avatarInput = document.getElementById('avatar-upload');
 
     const nameError = document.getElementById('name-error');
     const surnameError = document.getElementById('surname-error');
@@ -66,18 +67,47 @@ document.getElementById('submit-btn').addEventListener('click', function(event) 
             return;
         }
 
-        const newUser = {
-            name: name.value.trim(),
-            surname: surname.value.trim(),
-            email: email.value.trim(),
-            password: password.value.trim()
-        };
-        registeredUsers.push(newUser);
-        localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
+        let avatarData = "./Assets/empty_avatar.png";  // Default avatar
+        if (avatarInput.files && avatarInput.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                avatarData = e.target.result;
+                
+                saveUser();
+            };
+            reader.readAsDataURL(avatarInput.files[0]);
+        } else {
+            saveUser();
+        }
 
-        showAlert("Registration successful!", () => {
-            window.location.href = "Login.html";
-        });
+        function saveUser() {
+            const newUser = {
+                name: name.value.trim(),
+                surname: surname.value.trim(),
+                email: email.value.trim(),
+                password: password.value.trim(),
+                avatar: avatarData
+            };
+
+            registeredUsers.push(newUser);
+            localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
+            localStorage.setItem('currentUser', JSON.stringify(newUser));
+
+            showAlert("Registration successful!", () => {
+                window.location.href = "Profile.html";
+            });
+        }
+    }
+});
+
+document.getElementById('avatar-upload').addEventListener('change', function() {
+    const file = this.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('avatar-preview').src = e.target.result;
+        };
+        reader.readAsDataURL(file);
     }
 });
 

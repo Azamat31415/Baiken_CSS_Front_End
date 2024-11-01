@@ -255,15 +255,35 @@ footer img {
 }
 
 .avatar-container {
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
 .avatar {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    object-fit: cover;
-    background-color: #d3d3d3;
+    border: 2px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.upload-btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 0.9em;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.upload-btn:hover {
+    background-color: #0056b3;
 }
 
 .profile-form {

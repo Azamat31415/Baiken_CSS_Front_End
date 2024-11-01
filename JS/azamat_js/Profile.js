@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('profile-surname').textContent = user.surname || "Sailaubek";
         document.getElementById('profile-email').textContent = user.email;
         document.getElementById('profile-password').textContent = user.password || "aza061005";
+        document.getElementById('profile-avatar').src = user.avatar || "./Assets/empty_avatar.png";
     }
 
     document.getElementById('logout-button').addEventListener('click', function() {

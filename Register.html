@@ -61,8 +61,10 @@
             </div>
     
             <div class="avatar-container">
-                <img src="./Assets/empty_avatar.png" alt="Profile Avatar" class="avatar">
-            </div>
+                <img id="avatar-preview" src="./Assets/empty_avatar.png" alt="Profile Avatar" class="avatar">
+                <label for="avatar-upload" class="btn btn-secondary upload-btn">Upload your avatar</label>
+                <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
+            </div>                     
             
             <div class="card mb-3 p-3">
                 <form action="#" method="post" class="profile-form">

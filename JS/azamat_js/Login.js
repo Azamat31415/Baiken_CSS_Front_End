@@ -33,7 +33,7 @@ document.getElementById('submit-btn').addEventListener('click', function(event) 
     if (isEmailValid && isPasswordValid) {
         const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
 
-        if (email.value.trim() === '230147@astanait.edu.kz' && password.value.trim() === 'aza061005') {
+        if (email.value.trim() === '230147@astanait.edu.kz' && password.value.trim() === 'Aza061005') {
             showCustomAlert("Login successful!", () => {
                 localStorage.setItem("currentUser", JSON.stringify({ 
                     name: 'Azamat', 
