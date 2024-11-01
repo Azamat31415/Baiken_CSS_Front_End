@@ -24,10 +24,38 @@ document.getElementById('submit-btn').addEventListener('click', function(event) 
         }
     }
 
+    function validateEmail(emailField, errorMessage) {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(emailField.value.trim())) {
+            emailField.classList.add('error');
+            errorMessage.style.display = "block";
+            errorMessage.textContent = "Please enter a valid email (must contain @)";
+            return false;
+        } else {
+            emailField.classList.remove('error');
+            errorMessage.style.display = "none";
+            return true;
+        }
+    }
+
+    function validatePassword(passwordField, errorMessage) {
+        const passwordPattern = /^(?=.*[A-Z])(?=.*\d).+$/;
+        if (!passwordPattern.test(passwordField.value.trim())) {
+            passwordField.classList.add('error');
+            errorMessage.style.display = "block";
+            errorMessage.textContent = "Password must contain at least one uppercase letter and one number";
+            return false;
+        } else {
+            passwordField.classList.remove('error');
+            errorMessage.style.display = "none";
+            return true;
+        }
+    }
+
     const isNameValid = validateField(name, nameError);
     const isSurnameValid = validateField(surname, surnameError);
-    const isEmailValid = validateField(email, emailError);
-    const isPasswordValid = validateField(password, passwordError);
+    const isEmailValid = validateEmail(email, emailError);
+    const isPasswordValid = validatePassword(password, passwordError);
 
     if (isNameValid && isSurnameValid && isEmailValid && isPasswordValid) {
         const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
