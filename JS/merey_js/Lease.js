@@ -123,6 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             setTimeout(() => {
                 cartIcon.classList.remove('animated');
+                location.reload();
             }, 500); 
         });
     }
@@ -134,64 +135,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
     displayAds(ads);
 });
-
-/*
-document.addEventListener("DOMContentLoaded", function() {
-    const tableContainer = document.querySelector("main");
-    const textElement = document.createElement("p");
-
-    textElement.textContent = "Some text under this table";
-    textElement.style.marginTop = "20px";
-    tableContainer.appendChild(textElement);
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    const tableContainer = document.querySelector("main");
-    const circle = document.createElement("div");
-
-    circle.style.width = "100px";
-    circle.style.height = "100px";
-    circle.style.backgroundColor = "blue";
-    circle.style.borderRadius = "50%";
-    circle.style.mardingtop = "20px";
-    circle.style.transition = "transform 0.3s ease";
-
-    tableContainer.appendChild(circle);
-
-    circle.addEventListener("mouseover", function() {
-        circle.style.transform = "scale(1.3)";
-    });
-
-    circle.addEventListener("mouseout", function() {
-        circle.style.transform = "scale(1)";
-    })
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    const tableContainer = document.querySelector("main");
-    const button = document.createElement("button");
-
-    button.textContent = "Button";
-    button.style.padding = "10px 20px";
-    button.style.marginTop = "20px";
-    button.style.backgroundColor = "green";
-    button.style.color = "white";
-    button.style.border = "none";
-    button.style.borderRadius = "5px";
-    button.style.cursor = "pointer";
-    button.style.transition = "background-color 0.3s ease";
-
-    tableContainer.style.display = "flex";
-    tableContainer.style.justifyContent = "center";
-    tableContainer.style.alignItems = "center";
-
-    tableContainer.appendChild(button);
-
-    button.addEventListener("mouseover", function() {
-        button.style.backgroundColor = "red";
-    });
-
-    button.addEventListener("mouseout", function() {
-        button.style.backgroundColor = "green";
-    });
-});*/

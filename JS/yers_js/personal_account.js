@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
         newCard.querySelector('.remove-ad-btn').addEventListener('click', function(event) {
             event.preventDefault();
             removeAd(ad.location);
+            location.reload();
         });
     
         cartContainer.appendChild(newCard);
@@ -57,11 +58,11 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('leaseAds', JSON.stringify(leaseAds));
     
         let cartLease = JSON.parse(localStorage.getItem('cartLease')) || [];
-        cartLease = cartLease.filter(ad => ad.location !== location);
+        cartLease = cartLease.filter(ad => ad.title !== location);
         localStorage.setItem('cartLease', JSON.stringify(cartLease));
     
         let cartSales = JSON.parse(localStorage.getItem('cartSales')) || [];
-        cartSales = cartSales.filter(ad => ad.location !== location);
+        cartSales = cartSales.filter(ad => ad.title !== location);
         localStorage.setItem('cartSales', JSON.stringify(cartSales));
     
         displayAds();

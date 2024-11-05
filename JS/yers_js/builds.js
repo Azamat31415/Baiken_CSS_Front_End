@@ -63,6 +63,7 @@ function addToCart(button) {
 
         setTimeout(() => {
             cartIcon.classList.remove('animated');
+            location.reload();
         }, 500); 
     });
 }
