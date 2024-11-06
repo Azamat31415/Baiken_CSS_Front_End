@@ -1,19 +1,42 @@
 document.addEventListener('DOMContentLoaded', function() {
     const currentUser = localStorage.getItem("currentUser");
+
     if (!currentUser) {
         window.location.href = "Login.html";
     } else {
         const user = JSON.parse(currentUser);
 
-        document.getElementById('profile-name').textContent = user.name || "Azamat";
-        document.getElementById('profile-surname').textContent = user.surname || "Sailaubek";
-        document.getElementById('profile-email').textContent = user.email;
-        document.getElementById('profile-password').textContent = user.password || "aza061005";
-        document.getElementById('profile-avatar').src = user.avatar || "./Assets/empty_avatar.png";
+        const nameElement = document.getElementById('profile-name');
+        if (nameElement) {
+            nameElement.textContent = user.name || "Azamat";
+        }
+
+        const surnameElement = document.getElementById('profile-surname');
+        if (surnameElement) {
+            surnameElement.textContent = user.surname || "Sailaubek";
+        }
+
+        const emailElement = document.getElementById('profile-email');
+        if (emailElement) {
+            emailElement.textContent = user.email;
+        }
+
+        const passwordElement = document.getElementById('profile-password');
+        if (passwordElement) {
+            passwordElement.textContent = user.password || "Aza061005";
+        }
+
+        const avatarElement = document.getElementById('profile-avatar');
+        if (avatarElement) {
+            avatarElement.src = user.avatar || "./Assets/empty_avatar.png";
+        }
     }
 
-    document.getElementById('logout-button').addEventListener('click', function() {
-        localStorage.removeItem("currentUser");
-        window.location.href = "Login.html";
-    });
+    const logoutButton = document.getElementById('logout-button');
+    if (logoutButton) {
+        logoutButton.addEventListener('click', function() {
+            localStorage.removeItem("currentUser");
+            window.location.href = "Login.html";
+        });
+    }
 });

@@ -108,30 +108,33 @@ function showPrepaidModal({ title, location, price, rooms, area, imgSrc }) {
     modal.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
 
     modal.innerHTML = `
-        <h3>${location} - ${title}</h3>
-        <img src="${imgSrc || './Assets/photo_2024-08-01_20-08-19.jpg'}" alt="Product image" style="width: 100%; height: auto;">
+        <h3>${title}</h3>
         <p><strong>Price:</strong> ${price}</p>
-        <p><strong>Number of rooms:</strong> ${rooms}</p>
-        <p><strong>Area:</strong> ${area}</p>
 
         <form id="paymentForm">
             <label>Card number:</label>
-            <input type="text" class="form-control mb-2" placeholder="XXXX XXXX XXXX XXXX" maxlength="19">
+            <input type="text" class="form-control mb-2" id="cardNumber" placeholder="XXXX XXXX XXXX XXXX" maxlength="19">
+            <small id="cardNumberError" class="text-danger"></small><br>
 
             <label>Validity period:</label>
-            <input type="text" class="form-control mb-2" placeholder="MM/YY" maxlength="5">
+            <input type="text" class="form-control mb-2" id="validityPeriod" placeholder="MM/YY" maxlength="5">
+            <small id="validityPeriodError" class="text-danger"></small><br>
 
             <label>CVV:</label>
-            <input type="password" class="form-control mb-2" placeholder="•••" maxlength="3">
+            <input type="password" class="form-control mb-2" id="cvv" placeholder="•••" maxlength="3">
+            <small id="cvvError" class="text-danger"></small><br>
 
             <label>Full name of the owner:</label>
-            <input type="text" class="form-control mb-2" placeholder="NAME SURNAME">
+            <input type="text" class="form-control mb-2" id="ownerName" placeholder="NAME SURNAME">
+            <small id="ownerNameError" class="text-danger"></small><br>
 
             <label>Email:</label>
-            <input type="email" class="form-control mb-2" placeholder="example@gmail.com">
+            <input type="email" class="form-control mb-2" id="email" placeholder="example@gmail.com">
+            <small id="emailError" class="text-danger"></small><br>
 
             <label>Phone number:</label>
-            <input type="tel" class="form-control mb-2" placeholder="+7-777-777-7777">
+            <input type="tel" class="form-control mb-2" id="phone" placeholder="+7-777-777-7777">
+            <small id="phoneError" class="text-danger"></small>
         </form>
 
         <button type="button" id="submitOrder" class="btn btn-primary mt-2">Make an advance payment</button><br>
@@ -146,10 +149,74 @@ function showPrepaidModal({ title, location, price, rooms, area, imgSrc }) {
     };
 
     document.getElementById("submitOrder").onclick = () => {
-        alert("The prepayment has been made!");
-        document.body.removeChild(overlay);
-        removeFromCartLease(title);
+        if (validatePaymentForm()) {
+            alert("The prepayment has been made!");
+            document.body.removeChild(overlay);
+            removeFromCartLease(title);
+        }
     };
+}
+
+// Валидация полей
+function validatePaymentForm() {
+    let isValid = true;
+
+    const cardNumber = document.getElementById("cardNumber").value.trim();
+    const validityPeriod = document.getElementById("validityPeriod").value.trim();
+    const cvv = document.getElementById("cvv").value.trim();
+    const ownerName = document.getElementById("ownerName").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+
+    // Валидация номера карты
+    if (!/^\d{16}$/.test(cardNumber.replace(/\s+/g, ''))) {
+        document.getElementById("cardNumberError").textContent = "Invalid card number";
+        isValid = false;
+    } else {
+        document.getElementById("cardNumberError").textContent = "";
+    }
+
+    // Валидация срока действия
+    if (!/^\d{2}\/\d{2}$/.test(validityPeriod)) {
+        document.getElementById("validityPeriodError").textContent = "The format must be MM/YY";
+        isValid = false;
+    } else {
+        document.getElementById("validityPeriodError").textContent = "";
+    }
+
+    // Валидация CVV
+    if (!/^\d{3}$/.test(cvv)) {
+        document.getElementById("cvvError").textContent = "CVV must contain 3 digits";
+        isValid = false;
+    } else {
+        document.getElementById("cvvError").textContent = "";
+    }
+
+    // Валидация имени владельца
+    if (!/^[A-Za-z\s]+$/.test(ownerName)) {
+        document.getElementById("ownerNameError").textContent = "The name must contain only letters";
+        isValid = false;
+    } else {
+        document.getElementById("ownerNameError").textContent = "";
+    }
+
+    // Валидация Email
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+        document.getElementById("emailError").textContent = "Invalid email format";
+        isValid = false;
+    } else {
+        document.getElementById("emailError").textContent = "";
+    }
+
+    // Валидация номера телефона
+    if (!/^\+7-\d{3}-\d{3}-\d{4}$/.test(phone)) {
+        document.getElementById("phoneError").textContent = "The format must be +7-777-777-7777";
+        isValid = false;
+    } else {
+        document.getElementById("phoneError").textContent = "";
+    }
+
+    return isValid;
 }
 
 function createCartCard({ title, location, price, imgSrc, rooms, area, additional }, removeCallback, isLease) {

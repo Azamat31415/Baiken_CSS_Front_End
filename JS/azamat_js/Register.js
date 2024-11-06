@@ -40,8 +40,16 @@ document.getElementById('submit-btn').addEventListener('click', function(event) 
     }
 
     function validatePassword(passwordField, errorMessage) {
+        const passwordValue = passwordField.value.trim();
+        if (passwordValue.length < 8) {
+            passwordField.classList.add('error');
+            errorMessage.style.display = "block";
+            errorMessage.textContent = "Password must be at least 8 characters long";
+            return false;
+        }
+        
         const passwordPattern = /^(?=.*[A-Z])(?=.*\d).+$/;
-        if (!passwordPattern.test(passwordField.value.trim())) {
+        if (!passwordPattern.test(passwordValue)) {
             passwordField.classList.add('error');
             errorMessage.style.display = "block";
             errorMessage.textContent = "Password must contain at least one uppercase letter and one number";
@@ -67,7 +75,7 @@ document.getElementById('submit-btn').addEventListener('click', function(event) 
             return;
         }
 
-        let avatarData = "./Assets/empty_avatar.png";  // Default avatar
+        let avatarData = "./Assets/empty_avatar.png";
         if (avatarInput.files && avatarInput.files[0]) {
             const reader = new FileReader();
             reader.onload = function(e) {
